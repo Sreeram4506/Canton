@@ -1,23 +1,9 @@
 import { CalendarCheck, Search, KeyRound } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { PROCESS_STEPS } from "./shop";
 
-const STEPS = [
-  {
-    icon: CalendarCheck,
-    title: "Book your slot",
-    text: "Call, book online, or drop off after a collision — we'll hold a bay for you.",
-  },
-  {
-    icon: Search,
-    title: "Diagnose & quote",
-    text: "We inspect, photograph the issue and send a written estimate — coordinating directly with your insurer on collision claims.",
-  },
-  {
-    icon: KeyRound,
-    title: "Drive away",
-    text: "Repair completed and road-tested. Pick up your keys, or swap in your loaner.",
-  },
-];
+const ICONS = [CalendarCheck, Search, KeyRound] as const;
+const STEPS = PROCESS_STEPS.map((step, i) => ({ ...step, icon: ICONS[i]! }));
 
 export function Process() {
   return (

@@ -6,7 +6,10 @@
 
 Multi-page site (converted from a single-page scroll site per user request). Routes live under a shared pathless layout (`src/routes/_layout.tsx`, header + outlet + footer) with one file per page in `src/routes/_layout/`:
 
-- `/` — Hero + `ExploreLinks` (a divided-list nav into the other five pages, styled distinctly from every other section's list treatment)
+- `/` — Hero + `TrustMarquee` + `ProcessInMotion` + `ExploreLinks`.
+  - `TrustMarquee`: a full-bleed `brand-gradient` band with real facts (years in business, BBB accreditation, Yelp rating, services) scrolling in an infinite CSS-keyframe loop (`animate-marquee` in `styles.css`), pausing on hover and disabled under `prefers-reduced-motion`.
+  - `ProcessInMotion`: a scroll-driven "reactive video" moment (user request: "something more like a video... but reactive") — no fabricated footage was used; it's built from the one real garage photo already on the site (`hero-garage.jpg`) plus Framer Motion's `useScroll`/`useTransform`. A `position: sticky` viewport-height stage pins while the wrapping `h-[240vh]` section scrolls past; scroll progress drives a slow photo zoom (1.15 → 1, skipped under `prefers-reduced-motion`) and steps through the same three real process steps as `/process` (now shared via `PROCESS_STEPS` in `shop.ts`, consumed by both `Process.tsx` and this component so they can't drift), highlighting the active one and filling a bottom progress bar like a video scrubber. Pure CSS `position: sticky` + passive scroll-progress reads — no scroll-hijacking, keyboard/wheel scrolling behaves normally throughout.
+  - `ExploreLinks`: a divided-list nav into the other five pages, styled distinctly from every other section's list treatment.
 - `/why-us`, `/services`, `/process`, `/reviews`, `/contact` — each pairs a `PageHeader` (breadcrumb + `h1` + one-line orienting description, not a restatement of the section's own heading) with the pre-existing section component for that content
 
 `NAV` in `shop.ts` is the single source of truth for labels, route paths, and one-line descriptions — both the header/footer nav and the home page's `ExploreLinks` read from it. Header/footer nav links use TanStack Router's `Link` (not `<a href="#...">`) with `activeProps` so the current page highlights in `text-primary`, on both desktop and mobile nav.

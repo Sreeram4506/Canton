@@ -45,6 +45,21 @@ export const NAV = [
   },
 ] as const;
 
+export const PROCESS_STEPS = [
+  {
+    title: "Book your slot",
+    text: "Call, book online, or drop off after a collision — we'll hold a bay for you.",
+  },
+  {
+    title: "Diagnose & quote",
+    text: "We inspect, photograph the issue and send a written estimate — coordinating directly with your insurer on collision claims.",
+  },
+  {
+    title: "Drive away",
+    text: "Repair completed and road-tested. Pick up your keys, or swap in your loaner.",
+  },
+] as const;
+
 export const SERVICE_OPTIONS = [
   "Auto Repair & Diagnostics",
   "Collision & Auto Body",

@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/home/Hero";
+import { TrustMarquee } from "@/components/home/TrustMarquee";
+import { ProcessInMotion } from "@/components/home/ProcessInMotion";
 import { ExploreLinks } from "@/components/home/ExploreLinks";
 import { SHOP } from "@/components/home/shop";
 
@@ -53,6 +55,8 @@ function Index() {
   return (
     <>
       <Hero />
+      <TrustMarquee />
+      <ProcessInMotion />
       <ExploreLinks />
     </>
   );

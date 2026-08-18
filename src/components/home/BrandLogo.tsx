@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { SHOP } from "./shop";
 
-const LOGO_SRC = "/canton-logo.png";
+// Cropped to the wordmark's actual bounding box (the vendor source had ~65% vertical
+// whitespace baked into its 400x400 canvas) and background-keyed to transparent, so it
+// drops cleanly onto the dark hero photo or the scrolled header without a white box.
+const LOGO_SRC = "/cantonlogowbg.png";
 
 /**
  * The real signage wordmark is supplied by the shop and may not be present yet.
@@ -10,9 +13,12 @@ const LOGO_SRC = "/canton-logo.png";
  */
 export function BrandLogo({
   className = "h-11 sm:h-14",
+  glow = false,
   light = false,
 }: {
   className?: string;
+  /** Adds a soft light halo so the dark wordmark stays legible over a dark photo background. */
+  glow?: boolean;
   light?: boolean;
 }) {
   const [loaded, setLoaded] = useState(false);
@@ -26,6 +32,8 @@ export function BrandLogo({
     };
   }, []);
 
+  const isLight = glow || light;
+
   if (!loaded) {
     return (
       <span className="flex min-w-0 items-center gap-3">
@@ -34,12 +42,12 @@ export function BrandLogo({
         </span>
         <span className="min-w-0">
           <span
-            className={`block truncate font-display text-lg font-extrabold tracking-tight ${light ? "text-white" : "text-foreground"}`}
+            className={`block truncate font-display text-lg font-extrabold tracking-tight ${isLight ? "text-white" : "text-foreground"}`}
           >
             {SHOP.name}
           </span>
           <span
-            className={`block truncate text-[11px] uppercase tracking-[0.22em] ${light ? "text-white/70" : "text-muted-foreground"}`}
+            className={`block truncate text-[11px] uppercase tracking-[0.22em] ${isLight ? "text-white/70" : "text-muted-foreground"}`}
           >
             {SHOP.tagline}
           </span>
@@ -48,5 +56,11 @@ export function BrandLogo({
     );
   }
 
-  return <img src={LOGO_SRC} alt={SHOP.legalName} className={`w-auto shrink-0 ${className}`} />;
+  return (
+    <img
+      src={LOGO_SRC}
+      alt={SHOP.legalName}
+      className={`w-auto shrink-0 ${className}`}
+    />
+  );
 }

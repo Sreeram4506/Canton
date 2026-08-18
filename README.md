@@ -1,6 +1,6 @@
 # Auto Repair Refresh
 
-redesign this site ltdac.com it is auto repair shop website 
+redesign this site ltdac.com it is auto repair shop website
 
 into an more modren and good animations and good trasitions with professional ui
 

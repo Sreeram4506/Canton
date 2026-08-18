@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, Phone, ShieldCheck, Star, StarHalf, Wrench } from "lucide-react";
-import heroImage from "@/assets/hero-garage.jpg";
 import { SHOP } from "./shop";
 import { riseItem, stagger } from "./Reveal";
 import { BookAppointmentDialog } from "./BookAppointmentDialog";
@@ -26,7 +25,7 @@ export function Hero() {
       className="relative isolate flex min-h-[100svh] items-center overflow-hidden pb-[6.5rem] sm:pb-0"
     >
       <img
-        src={heroImage}
+        src="/cantonbg.png"
         alt="Technician servicing a car on a lift inside the Canton Auto garage"
         width={1600}
         height={1200}
@@ -60,18 +59,10 @@ export function Hero() {
             variants={riseItem}
             className="mt-6 font-display text-4xl font-extrabold leading-[1.05] text-white sm:text-6xl lg:text-7xl"
           >
-            Auto repair and auto body,
+            Specializing in Auto Repair & Collision,
             <span className="text-primary-on-dark"> done right since {SHOP.founded}</span>
           </motion.h1>
 
-          <motion.p
-            variants={riseItem}
-            className="mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg"
-          >
-            Diagnostics, collision repair, classic car restoration and routine maintenance — handled
-            by the {SHOP.legalName} crew with transparent pricing and {SHOP.yearsInBusiness}+ years
-            serving Canton, MA.
-          </motion.p>
 
           <motion.ul
             variants={riseItem}

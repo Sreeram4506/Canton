@@ -14,8 +14,9 @@ import { Route as LayoutIndexRouteImport } from './routes/_layout/index'
 import { Route as LayoutContactRouteImport } from './routes/_layout/contact'
 import { Route as LayoutProcessRouteImport } from './routes/_layout/process'
 import { Route as LayoutReviewsRouteImport } from './routes/_layout/reviews'
-import { Route as LayoutServicesRouteImport } from './routes/_layout/services'
 import { Route as LayoutWhyUsRouteImport } from './routes/_layout/why-us'
+import { Route as LayoutServicesIndexRouteImport } from './routes/_layout/services/index'
+import { Route as LayoutServicesSlugRouteImport } from './routes/_layout/services/$slug'
 
 const LayoutRoute = LayoutRouteImport.update({
   id: '/_layout',
@@ -41,14 +42,19 @@ const LayoutReviewsRoute = LayoutReviewsRouteImport.update({
   path: '/reviews',
   getParentRoute: () => LayoutRoute,
 } as any)
-const LayoutServicesRoute = LayoutServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => LayoutRoute,
-} as any)
 const LayoutWhyUsRoute = LayoutWhyUsRouteImport.update({
   id: '/why-us',
   path: '/why-us',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutServicesIndexRoute = LayoutServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutServicesSlugRoute = LayoutServicesSlugRouteImport.update({
+  id: '/services/$slug',
+  path: '/services/$slug',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -57,16 +63,18 @@ export interface FileRoutesByFullPath {
   '/contact': typeof LayoutContactRoute
   '/process': typeof LayoutProcessRoute
   '/reviews': typeof LayoutReviewsRoute
-  '/services': typeof LayoutServicesRoute
   '/why-us': typeof LayoutWhyUsRoute
+  '/services/$slug': typeof LayoutServicesSlugRoute
+  '/services/': typeof LayoutServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/contact': typeof LayoutContactRoute
   '/process': typeof LayoutProcessRoute
   '/reviews': typeof LayoutReviewsRoute
-  '/services': typeof LayoutServicesRoute
   '/why-us': typeof LayoutWhyUsRoute
   '/': typeof LayoutIndexRoute
+  '/services/$slug': typeof LayoutServicesSlugRoute
+  '/services': typeof LayoutServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -74,25 +82,40 @@ export interface FileRoutesById {
   '/_layout/contact': typeof LayoutContactRoute
   '/_layout/process': typeof LayoutProcessRoute
   '/_layout/reviews': typeof LayoutReviewsRoute
-  '/_layout/services': typeof LayoutServicesRoute
   '/_layout/why-us': typeof LayoutWhyUsRoute
   '/_layout/': typeof LayoutIndexRoute
+  '/_layout/services/$slug': typeof LayoutServicesSlugRoute
+  '/_layout/services/': typeof LayoutServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/contact' | '/process' | '/reviews' | '/services' | '/why-us'
+    | '/'
+    | '/contact'
+    | '/process'
+    | '/reviews'
+    | '/why-us'
+    | '/services/$slug'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/contact' | '/process' | '/reviews' | '/services' | '/why-us' | '/'
+  to:
+    | '/contact'
+    | '/process'
+    | '/reviews'
+    | '/why-us'
+    | '/'
+    | '/services/$slug'
+    | '/services'
   id:
     | '__root__'
     | '/_layout'
     | '/_layout/contact'
     | '/_layout/process'
     | '/_layout/reviews'
-    | '/_layout/services'
     | '/_layout/why-us'
     | '/_layout/'
+    | '/_layout/services/$slug'
+    | '/_layout/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -136,18 +159,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutReviewsRouteImport
       parentRoute: typeof LayoutRoute
     }
-    '/_layout/services': {
-      id: '/_layout/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof LayoutServicesRouteImport
-      parentRoute: typeof LayoutRoute
-    }
     '/_layout/why-us': {
       id: '/_layout/why-us'
       path: '/why-us'
       fullPath: '/why-us'
       preLoaderRoute: typeof LayoutWhyUsRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/services/': {
+      id: '/_layout/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof LayoutServicesIndexRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/services/$slug': {
+      id: '/_layout/services/$slug'
+      path: '/services/$slug'
+      fullPath: '/services/$slug'
+      preLoaderRoute: typeof LayoutServicesSlugRouteImport
       parentRoute: typeof LayoutRoute
     }
   }
@@ -157,18 +187,20 @@ interface LayoutRouteChildren {
   LayoutContactRoute: typeof LayoutContactRoute
   LayoutProcessRoute: typeof LayoutProcessRoute
   LayoutReviewsRoute: typeof LayoutReviewsRoute
-  LayoutServicesRoute: typeof LayoutServicesRoute
   LayoutWhyUsRoute: typeof LayoutWhyUsRoute
   LayoutIndexRoute: typeof LayoutIndexRoute
+  LayoutServicesSlugRoute: typeof LayoutServicesSlugRoute
+  LayoutServicesIndexRoute: typeof LayoutServicesIndexRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutContactRoute: LayoutContactRoute,
   LayoutProcessRoute: LayoutProcessRoute,
   LayoutReviewsRoute: LayoutReviewsRoute,
-  LayoutServicesRoute: LayoutServicesRoute,
   LayoutWhyUsRoute: LayoutWhyUsRoute,
   LayoutIndexRoute: LayoutIndexRoute,
+  LayoutServicesSlugRoute: LayoutServicesSlugRoute,
+  LayoutServicesIndexRoute: LayoutServicesIndexRoute,
 }
 
 const LayoutRouteWithChildren =

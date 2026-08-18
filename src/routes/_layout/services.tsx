@@ -1,7 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/home/PageHeader";
 import { Services } from "@/components/home/Services";
+import { FAQSection } from "@/components/home/FAQSection";
 import { SHOP } from "@/components/home/shop";
+
+const FAQS = [
+  {
+    q: "Do you work on all makes and models?",
+    a: "Yes — our bays handle domestic, import, and vintage vehicles alike, from routine maintenance to full collision repair.",
+  },
+  {
+    q: "Will you deal with my insurance company directly?",
+    a: "Yes. On collision claims, we coordinate directly with your insurer, so you're not stuck relaying quotes back and forth.",
+  },
+  {
+    q: "Can I get a Massachusetts state inspection done there?",
+    a: "Yes — we handle state inspection stickers and emissions testing while you wait.",
+  },
+  {
+    q: "Do you only do collision work, or routine maintenance too?",
+    a: "Both, under one roof: oil changes and multi-point checks, brakes and suspension, diagnostics, and full collision or restoration work.",
+  },
+];
 
 const TITLE = `Services — ${SHOP.legalName}`;
 const DESCRIPTION =
@@ -28,6 +48,7 @@ function ServicesPage() {
         description="Every service under one roof — no need to shop around."
       />
       <Services />
+      <FAQSection heading="Questions about our services" items={FAQS} />
     </>
   );
 }

@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Phone } from "lucide-react";
 import { NAV, SHOP } from "./shop";
 import { BrandLogo } from "./BrandLogo";
+import { OpenStatus } from "./OpenStatus";
 
 export function SiteFooter() {
   return (
@@ -54,6 +55,9 @@ export function SiteFooter() {
                 </div>
               ))}
             </div>
+            <div className="mt-4">
+              <OpenStatus />
+            </div>
           </div>
         </div>
 
@@ -61,14 +65,6 @@ export function SiteFooter() {
           © {new Date().getFullYear()} {SHOP.legalName}. All rights reserved.
         </p>
       </div>
-
-      <a
-        href={`tel:${SHOP.phone}`}
-        className="brand-gradient shadow-brand fixed bottom-4 right-4 z-40 grid h-14 w-14 place-items-center rounded-full text-primary-foreground transition-transform duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:hidden"
-        aria-label={`Call ${SHOP.name}`}
-      >
-        <Phone className="h-5 w-5" />
-      </a>
     </footer>
   );
 }

@@ -15,6 +15,10 @@ const HIGHLIGHTS = [
     title: "Trusted with classic cars",
     text: "Owners bring in vintage and muscle cars for restoration and describe a shop that treats them with real attention to detail.",
   },
+  {
+    title: "Fair, honest pricing",
+    text: '"Honesty" and "great price" are the words reviewers reach for most — no upselling, no padded invoices.',
+  },
 ];
 
 export function Testimonials() {
@@ -48,12 +52,12 @@ export function Testimonials() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-10 divide-y divide-border md:grid-cols-3 md:gap-8 md:divide-x md:divide-y-0">
+        <div className="mt-12 grid gap-10 divide-y divide-border md:grid-cols-4 md:gap-6 md:divide-x md:divide-y-0">
           {HIGHLIGHTS.map((item, i) => (
             <Reveal
               key={item.title}
               delay={i * 0.08}
-              className="pt-8 first:pt-0 md:px-8 md:pt-0 md:first:pl-0 md:last:pr-0"
+              className="pt-8 first:pt-0 md:px-6 md:pt-0 md:first:pl-0 md:last:pr-0"
             >
               <figure>
                 <Quote className="h-8 w-8 text-primary/30" />

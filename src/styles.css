@@ -30,6 +30,7 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-on-dark: var(--primary-on-dark);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -38,6 +39,8 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-open: var(--open);
+  --color-open-on-dark: var(--open-on-dark);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -67,6 +70,12 @@
 
   --primary: oklch(0.48 0.205 23);
   --primary-foreground: oklch(0.99 0.004 60);
+  /*
+   * The signage red is tuned for the white ground and measures only ~2.4:1 on the dark
+   * hero/process photos — under the 3:1 floor. This lifted tint of the same hue clears
+   * 4.9:1 there. Use it for any brand-red mark sitting on a dark surface.
+   */
+  --primary-on-dark: oklch(0.66 0.19 25);
 
   --secondary: oklch(0.95 0.006 40);
   --secondary-foreground: oklch(0.27 0.03 25);
@@ -79,6 +88,10 @@
 
   --destructive: oklch(0.53 0.2 45);
   --destructive-foreground: oklch(0.99 0.004 60);
+
+  /* Live open/closed indicator — deliberately outside the brand red so "open" never reads as an alert. */
+  --open: oklch(0.55 0.14 155);
+  --open-on-dark: oklch(0.78 0.16 155);
 
   --border: oklch(0.65 0.012 35);
   --input: oklch(0.6 0.014 35);

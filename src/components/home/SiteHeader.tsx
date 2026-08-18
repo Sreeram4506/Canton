@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { CalendarDays, Menu, Phone, X } from "lucide-react";
 import { NAV, SHOP } from "./shop";
 import { BookAppointmentDialog } from "./BookAppointmentDialog";
@@ -8,6 +8,7 @@ import { BrandLogo } from "./BrandLogo";
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -15,6 +16,8 @@ export function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const overHero = pathname === "/" && !scrolled;
 
   return (
     <header
@@ -29,7 +32,7 @@ export function SiteHeader() {
           to="/"
           className="flex min-w-0 items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
-          <BrandLogo />
+          <BrandLogo light={overHero} />
         </Link>
 
         <div className="flex items-center gap-1 sm:gap-2">
@@ -38,7 +41,11 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 to={item.href}
-                className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className={`rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                  overHero
+                    ? "text-white/85 hover:text-white"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
                 activeProps={{ className: "!text-primary" }}
               >
                 {item.label}
@@ -49,7 +56,11 @@ export function SiteHeader() {
             trigger={
               <button
                 type="button"
-                className="hidden items-center gap-2 rounded-full border border-border px-4 py-2.5 text-sm font-semibold text-foreground transition-colors duration-200 hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:inline-flex"
+                className={`hidden items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:inline-flex ${
+                  overHero
+                    ? "border-white/30 text-white hover:border-white/60"
+                    : "border-border text-foreground hover:border-primary/60 hover:text-primary"
+                }`}
               >
                 <CalendarDays className="h-4 w-4 shrink-0" />
                 Book Now
@@ -67,7 +78,11 @@ export function SiteHeader() {
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-border text-foreground transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:hidden"
+            className={`grid h-10 w-10 shrink-0 place-items-center rounded-md border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:hidden ${
+              overHero
+                ? "border-white/30 text-white hover:bg-white/10"
+                : "border-border text-foreground hover:bg-secondary"
+            }`}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>

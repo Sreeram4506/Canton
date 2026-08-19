@@ -7,8 +7,8 @@ export const SHOP = {
   phoneDisplay: "(781) 830-9480",
   address: "879B Washington St, Canton, MA 02021",
   hours: [
-    { day: "Mon – Fri", time: "8:00am – 5:00pm" },
-    { day: "Saturday", time: "8:00am – 2:00pm" },
+    { day: "Mon – Fri", time: "8:00am – 5:00pm EST" },
+    { day: "Saturday", time: "8:00am – 2:00pm EST" },
     { day: "Sunday", time: "Closed" },
   ],
   founded: 1989,
@@ -87,22 +87,62 @@ function formatMinutes(total: number) {
   return m === 0 ? `${h12}${suffix}` : `${h12}:${String(m).padStart(2, "0")}${suffix}`;
 }
 
+export function getESTDate(now = new Date()) {
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    weekday: "short",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: false,
+  });
+
+  const parts = formatter.formatToParts(now);
+  let weekdayStr = "";
+  let hour = 0;
+  let minute = 0;
+
+  for (const part of parts) {
+    if (part.type === "weekday") weekdayStr = part.value;
+    if (part.type === "hour") hour = parseInt(part.value, 10);
+    if (part.type === "minute") minute = parseInt(part.value, 10);
+  }
+
+  if (hour === 24) hour = 0;
+
+  const dayMap: Record<string, number> = {
+    Sun: 0,
+    Mon: 1,
+    Tue: 2,
+    Wed: 3,
+    Thu: 4,
+    Fri: 5,
+    Sat: 6,
+  };
+
+  return {
+    day: dayMap[weekdayStr] ?? 0,
+    minutes: hour * 60 + minute,
+  };
+}
+
 export function getOpenStatus(now = new Date()) {
-  const minutes = now.getHours() * 60 + now.getMinutes();
-  const today = HOURS_BY_DAY[now.getDay()];
+  const est = getESTDate(now);
+  const minutes = est.minutes;
+  const todayDay = est.day;
+  const today = HOURS_BY_DAY[todayDay];
 
   if (today && minutes >= today[0] && minutes < today[1]) {
-    return { open: true as const, label: `Open until ${formatMinutes(today[1])}` };
+    return { open: true as const, label: `Open until ${formatMinutes(today[1])} EST` };
   }
 
   for (let ahead = 0; ahead < 8; ahead++) {
-    const day = (now.getDay() + ahead) % 7;
+    const day = (todayDay + ahead) % 7;
     const window = HOURS_BY_DAY[day];
     if (!window) continue;
     if (ahead === 0 && minutes >= window[0]) continue;
 
     const when = ahead === 0 ? "today" : ahead === 1 ? "tomorrow" : DAY_LABELS[day];
-    return { open: false as const, label: `Opens ${when} at ${formatMinutes(window[0])}` };
+    return { open: false as const, label: `Opens ${when} at ${formatMinutes(window[0])} EST` };
   }
 
   return { open: false as const, label: "Closed" };

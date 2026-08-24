@@ -58,12 +58,12 @@ function ServiceDetailPage() {
           aria-hidden="true"
           className="absolute inset-0 -z-10 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/70 to-transparent" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-shop-charcoal/80 to-shop-charcoal/40" />
 
         <div className="mx-auto max-w-7xl px-4 pb-16 pt-32 sm:px-6 sm:pt-44 lg:pt-52">
           <nav
             aria-label="Breadcrumb"
-            className="mb-4 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white/70"
+            className="mb-4 flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-[0.16em] text-white/70"
           >
             <Link to="/services" className="hover:text-white">
               Services
@@ -73,7 +73,7 @@ function ServiceDetailPage() {
           </nav>
           <div className="flex items-start gap-4">
             <service.icon className="h-9 w-9 shrink-0 text-primary-on-dark sm:h-11 sm:w-11" />
-            <h1 className="font-display text-3xl font-extrabold leading-[1.05] text-white sm:text-5xl">
+            <h1 className="font-display text-3xl font-black leading-[1.04] text-white sm:text-6xl">
               {service.title}
             </h1>
           </div>
@@ -88,12 +88,12 @@ function ServiceDetailPage() {
               {service.intro}
             </p>
 
-            <h2 className="mt-10 font-display text-xl font-bold">What's included</h2>
-            <ul className="mt-4 space-y-3">
+            <h2 className="mt-10 font-display text-xl font-black">What's included</h2>
+            <ul className="mt-4 divide-y divide-border border-y border-border">
               {service.highlights.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3 text-sm text-foreground sm:text-base"
+                  className="flex items-start gap-3 py-3 text-sm text-foreground sm:text-base"
                 >
                   <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                   <span>{item}</span>
@@ -106,7 +106,7 @@ function ServiceDetailPage() {
                 trigger={
                   <button
                     type="button"
-                    className="brand-gradient inline-flex items-center gap-2 rounded px-5 py-3 text-sm font-bold uppercase tracking-wider text-primary-foreground transition-transform duration-200 hover:scale-[1.03] focus-visible:outline-none"
+                    className="brand-gradient inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold uppercase tracking-[0.16em] text-primary-foreground shadow-brand transition-transform duration-200 hover:translate-y-[-1px] focus-visible:outline-none"
                   >
                     Book this service
                   </button>
@@ -114,7 +114,7 @@ function ServiceDetailPage() {
               />
               <a
                 href={`tel:${SHOP.phone}`}
-                className="inline-flex items-center gap-2 rounded border border-border px-5 py-3 text-sm font-bold uppercase tracking-wider text-foreground transition-colors hover:bg-secondary focus-visible:outline-none"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-extrabold uppercase tracking-[0.16em] text-foreground transition-colors hover:bg-secondary focus-visible:outline-none"
               >
                 <Phone className="h-4 w-4" />
                 {SHOP.phoneDisplay}
@@ -122,15 +122,15 @@ function ServiceDetailPage() {
             </div>
           </div>
 
-          <aside className="rounded-lg border border-border bg-card p-6 shadow-elevated">
-            <h2 className="font-display text-lg font-bold">Other services</h2>
-            <ul className="mt-4 space-y-1">
+          <aside className="service-counter rounded-2xl border border-border p-6 shadow-elevated">
+            <h2 className="font-display text-lg font-black">Other services</h2>
+            <ul className="mt-4 divide-y divide-border">
               {others.map((s) => (
                 <li key={s.slug}>
                   <Link
                     to="/services/$slug"
                     params={{ slug: s.slug }}
-                    className="group flex items-center justify-between gap-2 rounded py-2.5 text-sm font-semibold text-foreground transition-colors hover:text-primary"
+                    className="group flex items-center justify-between gap-2 py-3 text-sm font-semibold text-foreground transition-colors hover:text-primary"
                   >
                     <span className="flex items-center gap-2.5 min-w-0">
                       <s.icon className="h-4 w-4 shrink-0 text-primary" />
@@ -143,7 +143,7 @@ function ServiceDetailPage() {
             </ul>
             <Link
               to="/services"
-              className="mt-4 inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-primary"
+              className="mt-5 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-[0.16em] text-primary"
             >
               View all services
               <ChevronRight className="h-3.5 w-3.5" />

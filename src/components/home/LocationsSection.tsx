@@ -2,49 +2,73 @@ import { SHOP } from "./shop";
 
 export function LocationsSection() {
   return (
-    <section className="bg-surface py-16 sm:py-24">
-      <div className="mx-auto max-w-7xl px-4 text-center sm:px-6">
-        <h2 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-          Our Location
-        </h2>
-        <div className="mx-auto mt-12 max-w-lg text-left">
-          <div className="rounded-2xl border border-border bg-background p-8 shadow-sm">
-            <h3 className="font-display text-2xl font-bold text-foreground">
-              {SHOP.name}
-            </h3>
-            <p className="mt-4 text-muted-foreground">{SHOP.address}</p>
-            <div className="mt-4 flex flex-col gap-2">
-              {SHOP.hours.map((h) => (
-                <div key={h.day} className="flex justify-between text-sm">
-                  <span className="font-medium text-foreground">{h.day}</span>
-                  <span className="text-muted-foreground">{h.time}</span>
-                </div>
-              ))}
+    <section className="shop-dark overflow-hidden py-16 text-white sm:py-24">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+        <div className="flex flex-col justify-between">
+          <div>
+            <h2 className="font-display text-3xl font-black tracking-tight sm:text-5xl">
+              Find the red Canton sign on Washington Street.
+            </h2>
+            <p className="mt-5 max-w-md text-white/70">
+              Drop off during posted hours, call ahead for a bay, or use the callback form and the
+              shop will follow up during business hours.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-5 text-sm sm:grid-cols-2 lg:grid-cols-1">
+            <div>
+              <h3 className="text-xs font-extrabold uppercase tracking-[0.2em] text-primary-on-dark">
+                Address
+              </h3>
+              <p className="mt-2 text-lg font-bold text-white">{SHOP.address}</p>
             </div>
-            <div className="mt-8">
+            <div>
+              <h3 className="text-xs font-extrabold uppercase tracking-[0.2em] text-primary-on-dark">
+                Hours
+              </h3>
+              <div className="mt-3 space-y-2 text-white/70">
+                {SHOP.hours.map((h) => (
+                  <div key={h.day} className="flex justify-between gap-4">
+                    <span className="font-semibold text-white">{h.day}</span>
+                    <span>{h.time}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="overflow-hidden rounded-2xl border border-white/15 bg-white/10 shadow-elevated backdrop-blur">
+          <iframe
+            title={`${SHOP.name} map`}
+            src={SHOP.mapsEmbedUrl}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="h-72 w-full border-0 grayscale sm:h-80 lg:h-full"
+          />
+          <div className="grid gap-3 border-t border-white/15 bg-black/35 p-4 sm:grid-cols-[1fr_auto_auto] sm:items-center">
+            <div className="min-w-0">
+              <p className="font-display text-xl font-black text-white">{SHOP.name}</p>
               <a
                 href={`tel:${SHOP.phone}`}
-                className="font-display text-2xl font-bold text-primary transition-colors hover:text-primary-on-dark"
+                className="mt-1 inline-flex font-bold text-primary-on-dark transition-colors hover:text-white focus-visible:outline-none focus-visible:underline"
               >
                 {SHOP.phoneDisplay}
               </a>
             </div>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-               <a
-                href={SHOP.mapsUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex flex-1 items-center justify-center rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-on-dark"
-              >
-                Get Directions
-              </a>
-               <a
-                href={`tel:${SHOP.phone}`}
-                className="inline-flex flex-1 items-center justify-center rounded-full border border-border bg-background px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
-              >
-                Call Shop
-              </a>
-            </div>
+            <a
+              href={SHOP.mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-full bg-white px-4 py-2.5 text-sm font-extrabold text-foreground transition-colors hover:bg-primary-on-dark hover:text-shop-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
+              Get Directions
+            </a>
+            <a
+              href={`tel:${SHOP.phone}`}
+              className="inline-flex items-center justify-center rounded-full border border-white/25 px-4 py-2.5 text-sm font-extrabold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
+              Call Shop
+            </a>
           </div>
         </div>
       </div>

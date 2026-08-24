@@ -5,6 +5,10 @@ import { Services } from "@/components/home/Services";
 import { LocationsSection } from "@/components/home/LocationsSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { SHOP } from "@/components/home/shop";
+import { Stats } from "@/components/home/Stats";
+import { WhyUs } from "@/components/home/WhyUs";
+import { Testimonials } from "@/components/home/Testimonials";
+import { ContactBand } from "@/components/home/ContactBand";
 
 const TITLE = "Canton Auto Services & Auto Body — Repair, Collision & Classic Restoration";
 const DESCRIPTION =
@@ -79,9 +83,13 @@ function Index() {
   return (
     <>
       <Hero />
+      <Stats />
       <IntroSection />
+      <WhyUs />
       <Services />
+      <Testimonials />
       <LocationsSection />
+      <ContactBand />
       <FAQSection heading="Frequently Asked Questions" items={FAQS} />
     </>
   );

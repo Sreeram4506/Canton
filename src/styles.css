@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Canton Auto design system — clean shop-white + the shop's own signage red.
- * Accent red is tuned to match the Canton Auto logo (public/canton-logo.png).
+ * Canton Auto design system — bright service-counter white, deep shop charcoal,
+ * steel-blue neutrals, and the shop's own signage red from public/cantonlogowbg.png.
  * All colors are oklch. Never hardcode color utilities in components.
  */
 
@@ -41,6 +41,9 @@
   --color-destructive-foreground: var(--destructive-foreground);
   --color-open: var(--open);
   --color-open-on-dark: var(--open-on-dark);
+  --color-shop-charcoal: var(--shop-charcoal);
+  --color-shop-steel: var(--shop-steel);
+  --color-shop-paper: var(--shop-paper);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -58,32 +61,35 @@
 :root {
   --radius: 0.75rem;
 
-  --background: oklch(0.995 0.002 40);
-  --foreground: oklch(0.225 0.02 25);
-  --surface: oklch(0.975 0.004 40);
-  --surface-2: oklch(0.945 0.006 35);
+  --background: oklch(0.99 0.004 65);
+  --foreground: oklch(0.19 0.026 250);
+  --surface: oklch(0.965 0.008 78);
+  --surface-2: oklch(0.91 0.012 245);
+  --shop-charcoal: oklch(0.18 0.032 250);
+  --shop-steel: oklch(0.47 0.035 245);
+  --shop-paper: oklch(0.982 0.015 78);
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.225 0.02 25);
+  --card-foreground: oklch(0.19 0.026 250);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.225 0.02 25);
+  --popover-foreground: oklch(0.19 0.026 250);
 
-  --primary: oklch(0.48 0.205 23);
+  --primary: oklch(0.46 0.22 25);
   --primary-foreground: oklch(0.99 0.004 60);
   /*
    * The signage red is tuned for the white ground and measures only ~2.4:1 on the dark
    * hero/process photos — under the 3:1 floor. This lifted tint of the same hue clears
    * 4.9:1 there. Use it for any brand-red mark sitting on a dark surface.
    */
-  --primary-on-dark: oklch(0.66 0.19 25);
+  --primary-on-dark: oklch(0.69 0.2 28);
 
-  --secondary: oklch(0.95 0.006 40);
-  --secondary-foreground: oklch(0.27 0.03 25);
+  --secondary: oklch(0.93 0.012 245);
+  --secondary-foreground: oklch(0.24 0.032 250);
 
-  --muted: oklch(0.955 0.005 40);
-  --muted-foreground: oklch(0.46 0.02 30);
+  --muted: oklch(0.955 0.008 78);
+  --muted-foreground: oklch(0.42 0.028 245);
 
-  --accent: oklch(0.48 0.205 23);
+  --accent: oklch(0.46 0.22 25);
   --accent-foreground: oklch(0.99 0.004 60);
 
   --destructive: oklch(0.53 0.2 45);
@@ -93,31 +99,23 @@
   --open: oklch(0.55 0.14 155);
   --open-on-dark: oklch(0.78 0.16 155);
 
-  --border: oklch(0.65 0.012 35);
-  --input: oklch(0.6 0.014 35);
-  --ring: oklch(0.48 0.205 23);
+  --border: oklch(0.68 0.018 245);
+  --input: oklch(0.61 0.018 245);
+  --ring: oklch(0.46 0.22 25);
 
   --sidebar: oklch(1 0 0);
-  --sidebar-foreground: oklch(0.225 0.025 25);
-  --sidebar-primary: oklch(0.48 0.205 23);
+  --sidebar-foreground: oklch(0.19 0.026 250);
+  --sidebar-primary: oklch(0.46 0.22 25);
   --sidebar-primary-foreground: oklch(0.99 0.004 60);
-  --sidebar-accent: oklch(0.95 0.006 40);
-  --sidebar-accent-foreground: oklch(0.27 0.03 25);
-  --sidebar-border: oklch(0.65 0.012 35);
-  --sidebar-ring: oklch(0.48 0.205 23);
+  --sidebar-accent: oklch(0.93 0.012 245);
+  --sidebar-accent-foreground: oklch(0.24 0.032 250);
+  --sidebar-border: oklch(0.68 0.018 245);
+  --sidebar-ring: oklch(0.46 0.22 25);
 
-  --gradient-brand: linear-gradient(
-    135deg,
-    oklch(0.56 0.215 25),
-    oklch(0.4 0.185 20)
-  );
-  --gradient-panel: linear-gradient(
-    160deg,
-    oklch(1 0 0),
-    oklch(0.965 0.006 40)
-  );
-  --shadow-elevated: 0 24px 55px -22px oklch(0.27 0.04 25 / 0.16);
-  --shadow-brand: 0 18px 42px -16px oklch(0.48 0.205 23 / 0.38);
+  --gradient-brand: linear-gradient(135deg, oklch(0.58 0.23 28), oklch(0.39 0.2 22));
+  --gradient-panel: linear-gradient(160deg, oklch(1 0 0), oklch(0.955 0.012 78));
+  --shadow-elevated: 0 26px 70px -34px oklch(0.18 0.032 250 / 0.34);
+  --shadow-brand: 0 18px 46px -18px oklch(0.46 0.22 25 / 0.46);
 }
 
 @layer base {
@@ -189,11 +187,22 @@
   box-shadow: var(--shadow-brand);
 }
 
-@utility grid-lines {
+@utility service-counter {
   background-image:
-    linear-gradient(to right, oklch(0.27 0.04 25 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(0.27 0.04 25 / 0.05) 1px, transparent 1px);
-  background-size: 64px 64px;
+    linear-gradient(120deg, oklch(1 0 0 / 0.9), oklch(0.96 0.014 78 / 0.94)),
+    repeating-linear-gradient(
+      90deg,
+      oklch(0.18 0.032 250 / 0.045) 0,
+      oklch(0.18 0.032 250 / 0.045) 1px,
+      transparent 1px,
+      transparent 22px
+    );
+}
+
+@utility shop-dark {
+  background-image:
+    radial-gradient(70% 80% at 82% 18%, oklch(0.46 0.22 25 / 0.22), transparent 62%),
+    linear-gradient(135deg, oklch(0.16 0.034 250), oklch(0.24 0.035 245) 58%, oklch(0.18 0.04 25));
 }
 
 @keyframes marquee {

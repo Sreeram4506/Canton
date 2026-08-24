@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { SHOP } from "./shop";
 
-// Cropped to the wordmark's actual bounding box (the vendor source had ~65% vertical
-// whitespace baked into its 400x400 canvas) and background-keyed to transparent, so it
-// drops cleanly onto the dark hero photo or the scrolled header without a white box.
 const LOGO_SRC = "/cantonlogowbg.png";
 
 /**
@@ -12,14 +9,12 @@ const LOGO_SRC = "/cantonlogowbg.png";
  * file never flashes a broken-image box with the alt text sprawled across the header.
  */
 export function BrandLogo({
-  className = "h-11 sm:h-14",
+  className = "h-10 sm:h-12",
   glow = false,
-  light = false,
 }: {
   className?: string;
   /** Adds a soft light halo so the dark wordmark stays legible over a dark photo background. */
   glow?: boolean;
-  light?: boolean;
 }) {
   const [loaded, setLoaded] = useState(false);
 
@@ -32,8 +27,6 @@ export function BrandLogo({
     };
   }, []);
 
-  const isLight = glow || light;
-
   if (!loaded) {
     return (
       <span className="flex min-w-0 items-center gap-3">
@@ -42,12 +35,12 @@ export function BrandLogo({
         </span>
         <span className="min-w-0">
           <span
-            className={`block truncate font-display text-lg font-extrabold tracking-tight ${isLight ? "text-white" : "text-foreground"}`}
+            className={`block truncate font-display text-lg font-extrabold tracking-tight ${glow ? "text-white" : "text-foreground"}`}
           >
             {SHOP.name}
           </span>
           <span
-            className={`block truncate text-[11px] uppercase tracking-[0.22em] ${isLight ? "text-white/70" : "text-muted-foreground"}`}
+            className={`block truncate text-[11px] uppercase tracking-[0.22em] ${glow ? "text-white/70" : "text-muted-foreground"}`}
           >
             {SHOP.tagline}
           </span>
@@ -60,7 +53,15 @@ export function BrandLogo({
     <img
       src={LOGO_SRC}
       alt={SHOP.legalName}
-      className={`w-auto shrink-0 ${className}`}
+      className={`w-auto shrink-0 object-contain ${className}`}
+      style={
+        glow
+          ? {
+              filter:
+                "drop-shadow(0 1px 14px rgb(255 255 255 / 0.7)) drop-shadow(0 8px 24px rgb(0 0 0 / 0.45))",
+            }
+          : undefined
+      }
     />
   );
 }

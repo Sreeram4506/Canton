@@ -9,10 +9,10 @@ export function MobileActionBar() {
       <div className="flex items-center justify-center px-4 pt-2">
         <OpenStatus />
       </div>
-      <div className="flex items-center gap-2 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2">
+      <div className="grid grid-cols-2 gap-2 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2">
         <a
           href={`tel:${SHOP.phone}`}
-          className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-border py-3.5 text-sm font-semibold text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="inline-flex min-w-0 items-center justify-center gap-2 rounded-full border border-border py-3.5 text-sm font-semibold text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           <Phone className="h-4 w-4 shrink-0" />
           Call
@@ -21,7 +21,7 @@ export function MobileActionBar() {
           trigger={
             <button
               type="button"
-              className="brand-gradient inline-flex flex-1 items-center justify-center gap-2 rounded-full py-3.5 text-sm font-semibold text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="brand-gradient inline-flex min-w-0 items-center justify-center gap-2 rounded-full py-3.5 text-sm font-semibold text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <CalendarDays className="h-4 w-4 shrink-0" />
               Book now

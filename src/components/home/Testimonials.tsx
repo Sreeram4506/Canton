@@ -23,13 +23,13 @@ const HIGHLIGHTS = [
 
 export function Testimonials() {
   return (
-    <section id="reviews" className="py-20 sm:py-28">
+    <section id="reviews" className="bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <Reveal className="max-w-2xl">
-          <h2 className="font-display text-3xl font-extrabold sm:text-5xl">
-            What Canton drivers say
+        <Reveal className="grid gap-6 border-b border-border pb-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)] lg:items-end">
+          <h2 className="font-display text-3xl font-black leading-tight sm:text-5xl">
+            What Canton drivers remember after pickup.
           </h2>
-          <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-semibold text-foreground/85">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-semibold text-foreground/85 lg:justify-end">
             <span className="inline-flex items-center gap-2">
               <span className="flex gap-0.5" aria-hidden="true">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -52,16 +52,16 @@ export function Testimonials() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-10 divide-y divide-border md:grid-cols-4 md:gap-6 md:divide-x md:divide-y-0">
+        <div className="mt-3 grid divide-y divide-border md:grid-cols-4 md:divide-x md:divide-y-0">
           {HIGHLIGHTS.map((item, i) => (
             <Reveal
               key={item.title}
               delay={i * 0.08}
-              className="pt-8 first:pt-0 md:px-6 md:pt-0 md:first:pl-0 md:last:pr-0"
+              className="py-8 md:px-6 md:first:pl-0 md:last:pr-0"
             >
               <figure>
-                <Quote className="h-8 w-8 text-primary/30" />
-                <figcaption className="mt-4 font-display text-base font-bold">
+                <Quote className="h-9 w-9 text-primary/35" />
+                <figcaption className="mt-5 font-display text-base font-black">
                   {item.title}
                 </figcaption>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.text}</p>

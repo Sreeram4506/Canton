@@ -1,12 +1,15 @@
 export function PageHeader({ title, description }: { title: string; description?: string }) {
   return (
-    <div className="relative isolate overflow-hidden">
-      <div aria-hidden="true" className="grid-lines absolute inset-0 -z-10" />
-      <div className="mx-auto max-w-7xl px-4 pb-10 pt-28 sm:px-6 sm:pt-36 lg:pt-40">
-        <h1 className="font-display text-4xl font-extrabold leading-[1.05] sm:text-5xl">{title}</h1>
-        {description && (
-          <p className="mt-3 max-w-2xl text-base text-muted-foreground sm:text-lg">{description}</p>
-        )}
+    <div className="service-counter relative isolate overflow-hidden border-b border-border">
+      <div className="mx-auto max-w-7xl px-4 pb-12 pt-28 sm:px-6 sm:pt-36 lg:pt-40">
+        <div className="max-w-3xl">
+          <h1 className="font-display text-4xl font-black leading-[1.02] sm:text-6xl">{title}</h1>
+          {description && (
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              {description}
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );

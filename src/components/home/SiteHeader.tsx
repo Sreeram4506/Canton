@@ -5,13 +5,6 @@ import { SHOP } from "./shop";
 import { SERVICES } from "./servicesData";
 import { BookAppointmentDialog } from "./BookAppointmentDialog";
 import { BrandLogo } from "./BrandLogo";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -31,106 +24,101 @@ export function SiteHeader() {
     setMobileServicesOpen(false);
   }, [pathname]);
 
-  const overHero = pathname === "/" && !scrolled;
+  // Home and individual service pages both open on a full-bleed dark photo; every other
+  // route's unscrolled state sits on PageHeader's plain light background, so only these
+  // two route shapes need the light nav treatment before the user scrolls.
+  const hasDarkHero = pathname === "/" || /^\/services\/[^/]+$/.test(pathname);
+  const overHero = hasDarkHero && !scrolled;
   const navLinkClass = (extra = "") =>
-    `text-sm font-bold uppercase tracking-wider transition-colors focus-visible:outline-none ${
-      overHero ? "text-white hover:text-white/80" : "text-muted-foreground hover:text-primary"
+    `text-[13px] font-extrabold uppercase tracking-[0.16em] transition-colors focus-visible:outline-none ${
+      overHero ? "text-white hover:text-primary-on-dark" : "text-foreground/70 hover:text-primary"
     } ${extra}`;
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-border bg-background/90 backdrop-blur-md shadow-sm"
-          : "bg-transparent border-transparent"
+          ? "border-b border-border/80 bg-background/95 shadow-[0_18px_45px_-34px_rgb(15_23_42_/_0.55)] backdrop-blur-xl"
+          : "border-transparent bg-transparent"
       }`}
     >
-      {/* Main Nav */}
       <div
-        className={`mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:grid lg:grid-cols-[1fr_auto_1fr] transition-all duration-300 ${
-          !scrolled ? "py-3 lg:py-4" : "py-2 lg:py-2.5"
+        className={`mx-auto flex max-w-7xl items-center justify-between gap-5 px-4 transition-all duration-300 sm:px-6 ${
+          !scrolled ? "py-3 lg:py-5" : "py-2.5"
         }`}
       >
-        {/* Left Links (Desktop) */}
-        <nav className="hidden items-center justify-start gap-6 lg:flex">
+        <Link
+          to="/"
+          className="flex min-w-0 shrink-0 items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        >
+          <BrandLogo
+            glow={overHero}
+            className={`w-auto transition-all duration-300 ${scrolled ? "h-9 sm:h-10" : "h-11 sm:h-14 lg:h-16"}`}
+          />
+        </Link>
+
+        <nav
+          className={`hidden items-center gap-6 rounded-full px-5 py-3 lg:flex ${
+            overHero
+              ? "border border-white/15 bg-black/20 backdrop-blur-md"
+              : "border border-border/80 bg-background/70"
+          }`}
+        >
           <Link
             to="/why-us"
             className={navLinkClass()}
-            activeProps={{ className: "!text-foreground" }}
+            activeProps={{ className: overHero ? "!text-primary-on-dark" : "!text-primary" }}
           >
             Why Us
           </Link>
           <Link
+            to="/services"
+            className={navLinkClass()}
+            activeProps={{ className: overHero ? "!text-primary-on-dark" : "!text-primary" }}
+          >
+            Services
+          </Link>
+          <Link
             to="/process"
             className={navLinkClass()}
-            activeProps={{ className: "!text-foreground" }}
+            activeProps={{ className: overHero ? "!text-primary-on-dark" : "!text-primary" }}
           >
             Process
           </Link>
+          <Link
+            to="/reviews"
+            className={navLinkClass()}
+            activeProps={{ className: overHero ? "!text-primary-on-dark" : "!text-primary" }}
+          >
+            Reviews
+          </Link>
+          <Link
+            to="/contact"
+            className={navLinkClass()}
+            activeProps={{ className: overHero ? "!text-primary-on-dark" : "!text-primary" }}
+          >
+            Contact
+          </Link>
         </nav>
 
-        {/* Center Logo */}
-        <Link
-          to="/"
-          className="flex min-w-0 shrink-0 items-center justify-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        >
-          <BrandLogo
-            className={`w-auto transition-all duration-300 ${scrolled ? "h-14 sm:h-16" : "h-24 sm:h-32"}`}
-          />
-        </Link>
-
-        {/* Right CTA / Links */}
-        <div className="flex items-center justify-end gap-4 lg:gap-6">
-          <nav className="hidden items-center gap-6 lg:flex">
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                className={`group inline-flex items-center gap-1 ${navLinkClass()}`}
-              >
-                Services
-                <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-data-[state=open]:rotate-180" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="center" sideOffset={14} className="w-72 p-2">
-                {SERVICES.map((service) => (
-                  <DropdownMenuItem
-                    key={service.slug}
-                    asChild
-                    className="cursor-pointer rounded-md py-2.5"
-                  >
-                    <Link
-                      to="/services/$slug"
-                      params={{ slug: service.slug }}
-                      className="flex items-center gap-3"
-                    >
-                      <service.icon className="h-4 w-4 shrink-0 text-primary" />
-                      <span className="min-w-0">
-                        <span className="block truncate text-sm font-semibold text-foreground">
-                          {service.title}
-                        </span>
-                      </span>
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild className="cursor-pointer rounded-md py-2">
-                  <Link
-                    to="/services"
-                    className="text-sm font-bold uppercase tracking-wider text-primary"
-                  >
-                    View all services
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </nav>
+        <div className="flex items-center justify-end gap-3">
+          <a
+            href={`tel:${SHOP.phone}`}
+            className={`hidden items-center gap-1.5 ${navLinkClass()} xl:inline-flex`}
+            aria-label={`Call ${SHOP.phoneDisplay}`}
+          >
+            <Phone className="h-3.5 w-3.5 shrink-0" />
+            {SHOP.phoneDisplay}
+          </a>
 
           <BookAppointmentDialog
             trigger={
               <button
                 type="button"
-                className="brand-gradient hidden items-center gap-2 rounded px-5 py-2 text-sm font-bold uppercase tracking-wider text-primary-foreground transition-transform duration-200 hover:scale-[1.03] focus-visible:outline-none sm:inline-flex"
+                className="brand-gradient hidden items-center gap-2 rounded-full px-5 py-3 text-xs font-extrabold uppercase tracking-[0.16em] text-primary-foreground shadow-brand transition-transform duration-200 hover:translate-y-[-1px] focus-visible:outline-none sm:inline-flex"
               >
                 <CalendarDays className="h-4 w-4 shrink-0" />
-                Book Appointment
+                Book
               </button>
             }
           />
@@ -150,9 +138,8 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile Nav */}
       <div
-        className={`overflow-hidden border-t border-border bg-background transition-[max-height,opacity] duration-300 lg:hidden ${
+        className={`overflow-hidden border-t border-border bg-background shadow-elevated transition-[max-height,opacity] duration-300 lg:hidden ${
           open ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
         }`}
       >

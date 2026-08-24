@@ -91,10 +91,22 @@ export function BookAppointmentDialog({ trigger }: { trigger: ReactNode }) {
 
   const onSubmit = async (values: BookingValues) => {
     setSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    
+    const text = `Hi, I'd like to book an appointment.
+Name: ${values.name}
+Phone: ${values.phone}
+Vehicle: ${values.vehicle}
+Service: ${values.service}
+Date: ${format(values.date, "EEEE, MMM d")}
+Time: ${values.time}
+${values.notes ? `Notes: ${values.notes}` : ''}`;
+
+    const cleanPhone = SHOP.phone.replace(/\D/g, "");
+    window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`, "_blank");
+
     setSubmitting(false);
-    toast.success("Appointment requested", {
-      description: `${values.service} on ${format(values.date, "EEEE, MMM d")} at ${values.time}. We'll call ${values.phone} to confirm.`,
+    toast.success("Ready to book", {
+      description: `Opening WhatsApp to confirm your appointment for ${values.service}.`,
     });
     form.reset();
     setOpen(false);

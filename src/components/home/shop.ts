@@ -50,19 +50,22 @@ export const NAV = [
 
 export const PROCESS_STEPS = [
   {
-    title: "Book your slot",
+    actor: "You",
+    title: "You bring it in",
     text: "Call, book online, or drop off after a collision — we'll hold a bay for you.",
     detail: "Same-day drop-off available during posted hours.",
   },
   {
-    title: "Diagnose & quote",
+    actor: "Our team",
+    title: "We inspect & diagnose",
     text: "We inspect, photograph the issue and send a written estimate — coordinating directly with your insurer on collision claims.",
     detail: "Nothing gets fixed before you approve the estimate.",
   },
   {
-    title: "Drive away",
-    text: "Repair completed and road-tested. Pick up your keys, or swap in your loaner.",
-    detail: "Free loaner cars on longer repairs.",
+    actor: "Your technician",
+    title: "Technician resolves it",
+    text: "Your technician repairs the issue and road-tests the car before it leaves the bay.",
+    detail: "Pick up your keys, or swap in your loaner.",
   },
 ] as const;
 

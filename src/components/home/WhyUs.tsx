@@ -27,9 +27,9 @@ const POINTS = [
   },
 ];
 
+// Every figure here must be traceable to SHOP data — no invented headcounts or ratings.
 const STATS = [
   { value: SHOP.yearsInBusiness, suffix: "+", label: "Years in business" },
-  { value: 15, suffix: "+", label: "Skilled technicians" },
   { value: SHOP.reviewCount, suffix: "+", label: "Yelp reviews" },
   { value: SHOP.rating, suffix: "★", label: "Average rating" },
 ];
@@ -73,11 +73,11 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export function WhyUs() {
   return (
-    <section id="why" className="relative py-20 sm:py-28">
+    <section id="why" className="relative overflow-hidden py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-center">
           <Reveal>
-            <h2 className="font-display text-3xl font-extrabold sm:text-5xl">
+            <h2 className="font-display text-3xl font-black leading-tight sm:text-5xl">
               Family-run, straight with you since {SHOP.founded}
             </h2>
             <p className="mt-4 max-w-lg text-muted-foreground">
@@ -86,9 +86,9 @@ export function WhyUs() {
               {SHOP.yearsInBusiness} years.
             </p>
 
-            <dl className="mt-10 grid grid-cols-2 gap-6 sm:gap-8">
+            <dl className="mt-10 grid grid-cols-3 divide-x divide-border border-y border-border">
               {STATS.map((stat) => (
-                <div key={stat.label}>
+                <div key={stat.label} className="px-3 py-5 first:pl-0">
                   <dt className="sr-only">{stat.label}</dt>
                   <dd>
                     <Counter value={stat.value} suffix={stat.suffix} />
@@ -99,14 +99,16 @@ export function WhyUs() {
             </dl>
           </Reveal>
 
-          <div className="divide-y divide-border">
+          <div className="rounded-2xl border border-border bg-shop-paper px-5 shadow-elevated sm:px-7">
             {POINTS.map((point, i) => (
               <Reveal
                 key={point.title}
                 delay={i * 0.08}
-                className="flex items-start gap-4 py-5 first:pt-0"
+                className="flex items-start gap-4 border-b border-border py-6 last:border-0"
               >
-                <point.icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-background text-primary">
+                  <point.icon className="h-5 w-5" />
+                </span>
                 <div className="min-w-0">
                   <h3 className="font-display text-base font-bold">{point.title}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{point.text}</p>

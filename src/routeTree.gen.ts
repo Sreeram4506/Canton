@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LayoutRouteImport } from './routes/_layout'
 import { Route as LayoutIndexRouteImport } from './routes/_layout/index'
+import { Route as LayoutAdminRouteImport } from './routes/_layout/admin'
 import { Route as LayoutContactRouteImport } from './routes/_layout/contact'
 import { Route as LayoutProcessRouteImport } from './routes/_layout/process'
 import { Route as LayoutReviewsRouteImport } from './routes/_layout/reviews'
@@ -25,6 +26,11 @@ const LayoutRoute = LayoutRouteImport.update({
 const LayoutIndexRoute = LayoutIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutAdminRoute = LayoutAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => LayoutRoute,
 } as any)
 const LayoutContactRoute = LayoutContactRouteImport.update({
@@ -60,6 +66,7 @@ const LayoutServicesSlugRoute = LayoutServicesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof LayoutIndexRoute
+  '/admin': typeof LayoutAdminRoute
   '/contact': typeof LayoutContactRoute
   '/process': typeof LayoutProcessRoute
   '/reviews': typeof LayoutReviewsRoute
@@ -68,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/services/': typeof LayoutServicesIndexRoute
 }
 export interface FileRoutesByTo {
+  '/admin': typeof LayoutAdminRoute
   '/contact': typeof LayoutContactRoute
   '/process': typeof LayoutProcessRoute
   '/reviews': typeof LayoutReviewsRoute
@@ -79,6 +87,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_layout': typeof LayoutRouteWithChildren
+  '/_layout/admin': typeof LayoutAdminRoute
   '/_layout/contact': typeof LayoutContactRoute
   '/_layout/process': typeof LayoutProcessRoute
   '/_layout/reviews': typeof LayoutReviewsRoute
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/contact'
     | '/process'
     | '/reviews'
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/admin'
     | '/contact'
     | '/process'
     | '/reviews'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/_layout'
+    | '/_layout/admin'
     | '/_layout/contact'
     | '/_layout/process'
     | '/_layout/reviews'
@@ -136,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof LayoutIndexRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/admin': {
+      id: '/_layout/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof LayoutAdminRouteImport
       parentRoute: typeof LayoutRoute
     }
     '/_layout/contact': {
@@ -184,6 +203,7 @@ declare module '@tanstack/react-router' {
 }
 
 interface LayoutRouteChildren {
+  LayoutAdminRoute: typeof LayoutAdminRoute
   LayoutContactRoute: typeof LayoutContactRoute
   LayoutProcessRoute: typeof LayoutProcessRoute
   LayoutReviewsRoute: typeof LayoutReviewsRoute
@@ -194,6 +214,7 @@ interface LayoutRouteChildren {
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
+  LayoutAdminRoute: LayoutAdminRoute,
   LayoutContactRoute: LayoutContactRoute,
   LayoutProcessRoute: LayoutProcessRoute,
   LayoutReviewsRoute: LayoutReviewsRoute,

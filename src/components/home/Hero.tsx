@@ -40,14 +40,14 @@ export function Hero() {
 
           <motion.h1
             variants={riseItem}
-            className="mt-6 max-w-4xl text-wrap font-display text-4xl font-black leading-[1.02] text-white sm:text-7xl sm:leading-[0.96] lg:text-[5.75rem]"
+            className="mt-5 max-w-4xl text-wrap font-display text-4xl font-black leading-[1.05] text-white sm:text-5xl lg:text-6xl"
           >
             Repair, body work, and honest answers under one roof.
           </motion.h1>
 
           <motion.p
             variants={riseItem}
-            className="mt-7 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl"
+            className="mt-5 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg"
           >
             From complex engine diagnostics to full collision bodywork and classic car restoration,
             Eli and the Canton Auto crew explain the work before the wrench turns.

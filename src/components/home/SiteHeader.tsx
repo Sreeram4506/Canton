@@ -53,7 +53,7 @@ export function SiteHeader() {
         >
           <BrandLogo
             glow={overHero}
-            className={`w-auto transition-all duration-300 ${scrolled ? "h-9 sm:h-10" : "h-11 sm:h-14 lg:h-16"}`}
+            className={`w-auto transition-all duration-300 ${scrolled ? "h-11 sm:h-12" : "h-16 sm:h-16 lg:h-20"}`}
           />
         </Link>
 

@@ -102,7 +102,7 @@ Time: ${values.time}
 ${values.notes ? `Notes: ${values.notes}` : ''}`;
 
     const cleanPhone = SHOP.phone.replace(/\D/g, "");
-    window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`, "_blank");
+    window.open(`https://wa.me/1${cleanPhone}?text=${encodeURIComponent(text)}`, "_blank");
 
     setSubmitting(false);
     toast.success("Ready to book", {

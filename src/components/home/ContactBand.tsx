@@ -20,7 +20,7 @@ Vehicle: ${data.vehicle}
 Issue: ${data.issue}`;
 
     const cleanPhone = SHOP.phone.replace(/\D/g, "");
-    window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`, "_blank");
+    window.open(`https://wa.me/1${cleanPhone}?text=${encodeURIComponent(text)}`, "_blank");
 
     setSent(true);
     toast.success("Request ready to send", {

@@ -32,8 +32,8 @@ export const Route = createFileRoute("/_layout/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "AutoRepair",
-          name: SHOP.legalName,
-          telephone: SHOP.phone,
+          name: SHOP?.legalName || "Canton Auto",
+          telephone: SHOP?.phone || "7818309480",
           description: DESCRIPTION,
           address: {
             "@type": "PostalAddress",
@@ -46,8 +46,8 @@ export const Route = createFileRoute("/_layout/")({
           openingHours: ["Mo-Fr 08:00-17:00", "Sa 08:00-14:00"],
           aggregateRating: {
             "@type": "AggregateRating",
-            ratingValue: SHOP.rating,
-            reviewCount: SHOP.reviewCount,
+            ratingValue: SHOP?.rating || 4.4,
+            reviewCount: SHOP?.reviewCount || 70,
           },
         }),
       },

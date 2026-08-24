@@ -4,7 +4,7 @@ import { Process } from "@/components/home/Process";
 import { FAQSection } from "@/components/home/FAQSection";
 import { SHOP } from "@/components/home/shop";
 
-const TITLE = `Our Process — ${SHOP.legalName}`;
+const TITLE = `Our Process — ${SHOP?.legalName || "Canton Auto Services"}`;
 const DESCRIPTION = "How booking, diagnosis, and pickup work — three steps, no runaround.";
 
 const FAQS = [

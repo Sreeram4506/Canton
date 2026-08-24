@@ -21,7 +21,7 @@ const FAQS = [
   },
 ];
 
-const TITLE = `Contact — ${SHOP.legalName}`;
+const TITLE = `Contact — ${SHOP?.legalName || "Canton Auto Services"}`;
 const DESCRIPTION = `Call ${SHOP.phoneDisplay}, visit ${SHOP.address}, or send us the details online and we'll call you back.`;
 
 export const Route = createFileRoute("/_layout/contact")({
@@ -65,7 +65,7 @@ function ContactPage() {
           </div>
           <div className="mt-6 overflow-hidden rounded-2xl border border-border">
             <iframe
-              title={`Map to ${SHOP.legalName}`}
+              title={`Map to ${SHOP?.legalName || "Canton Auto Services"}`}
               src={SHOP.mapsEmbedUrl}
               loading="lazy"
               className="h-80 w-full sm:h-96"

@@ -27,7 +27,7 @@ const FAQS = [
   },
 ];
 
-const TITLE = `Why ${SHOP.name} — ${SHOP.legalName}`;
+const TITLE = `Why ${SHOP?.name || "Canton Auto"} — ${SHOP?.legalName || "Canton Auto Services"}`;
 const DESCRIPTION =
   "Family-run since 1989, BBB A+ accredited, transparent written estimates, and free loaner cars on longer repairs.";
 

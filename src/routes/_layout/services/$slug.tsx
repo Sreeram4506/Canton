@@ -14,7 +14,7 @@ export const Route = createFileRoute("/_layout/services/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) return {};
-    const title = `${loaderData.title} — ${SHOP.legalName}`;
+    const title = `${loaderData.title} — ${SHOP?.legalName || "Canton Auto Services"}`;
     return {
       meta: [
         { title },

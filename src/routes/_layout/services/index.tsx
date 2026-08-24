@@ -23,7 +23,7 @@ const FAQS = [
   },
 ];
 
-const TITLE = `Services — ${SHOP.legalName}`;
+const TITLE = `Services — ${SHOP?.legalName || "Canton Auto Services"}`;
 const DESCRIPTION =
   "Diagnostics, collision and auto body repair, classic car restoration, brakes and suspension, state inspection, and oil service.";
 

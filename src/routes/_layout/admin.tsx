@@ -55,7 +55,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 
-const TITLE = `Admin Dashboard — ${SHOP.legalName}`;
+const TITLE = `Admin Dashboard — ${SHOP?.legalName || "Canton Auto Services"}`;
 const DESCRIPTION = `Operational management portal for Canton Auto Services & Auto Body — Appointments, Repair Tickets, Services, and Shop Settings.`;
 
 export const Route = createFileRoute("/_layout/admin")({

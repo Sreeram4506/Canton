@@ -26,26 +26,27 @@ export function Services() {
           </Link>
         </Reveal>
 
-        <div className="mt-4 divide-y divide-border">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
           {SERVICES.map((service, i) => (
             <Reveal key={service.slug} delay={i * 0.06}>
               <Link
                 to="/services/$slug"
                 params={{ slug: service.slug }}
-                className="group grid gap-5 py-6 transition-colors hover:bg-background/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:grid-cols-[3.5rem_minmax(0,1fr)_auto] sm:items-center sm:px-3"
+                className="group flex h-full flex-col rounded-2xl border border-border bg-background p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                <span className="grid h-14 w-14 place-items-center rounded-xl bg-primary text-primary-foreground shadow-brand transition-transform duration-300 group-hover:-rotate-3 group-hover:scale-105">
+                <span className="mb-6 grid h-14 w-14 place-items-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                   <service.icon className="h-7 w-7" />
                 </span>
-                <div className="min-w-0 max-w-3xl">
-                  <h3 className="font-display text-xl font-black transition-colors group-hover:text-primary">
-                    {service.title}
-                  </h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                    {service.text}
-                  </p>
-                </div>
-                <span className="inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-[0.16em] text-primary sm:justify-self-end">
+                
+                <h3 className="mb-3 font-display text-xl font-bold transition-colors group-hover:text-primary">
+                  {service.title}
+                </h3>
+                
+                <p className="mb-8 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  {service.text}
+                </p>
+                
+                <span className="mt-auto inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-[0.16em] text-primary">
                   Details
                   <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </span>

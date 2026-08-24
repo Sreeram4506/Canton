@@ -1110,7 +1110,7 @@ function AdminPage() {
                         </div>
                         <div>
                           <h3 className="font-bold text-sm text-foreground">{srv.title}</h3>
-                          <p className="text-xs text-muted-foreground max-w-lg mt-0.5">{srv.description}</p>
+                          <p className="text-xs text-muted-foreground max-w-lg mt-0.5">{srv.text}</p>
                           <div className="flex flex-wrap gap-2 mt-2">
                             {srv.highlights.slice(0, 3).map((h, i) => (
                               <Badge key={i} variant="secondary" className="text-[10px]">

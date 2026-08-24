@@ -13,11 +13,11 @@ export function ContactBand() {
     const data = Object.fromEntries(formData.entries());
     
     const text = `Hi, I'd like to request a callback.
-Name: ${data.name}
-Email: ${data.email}
-Phone: ${data.phone}
-Vehicle: ${data.vehicle}
-Issue: ${data.issue}`;
+Name: ${String(data["name"] || "")}
+Email: ${String(data["email"] || "")}
+Phone: ${String(data["phone"] || "")}
+Vehicle: ${String(data["vehicle"] || "")}
+Issue: ${String(data["issue"] || "")}`;
 
     const cleanPhone = SHOP.phone.replace(/\D/g, "");
     window.open(`https://wa.me/1${cleanPhone}?text=${encodeURIComponent(text)}`, "_blank");

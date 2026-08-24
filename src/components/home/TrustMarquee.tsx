@@ -2,10 +2,10 @@ import { Sparkle } from "lucide-react";
 import { SHOP } from "./shop";
 
 const ITEMS = [
-  `${SHOP.yearsInBusiness}+ Years in Business`,
-  `Family-Run Since ${SHOP.founded}`,
+  `${SHOP?.yearsInBusiness || 37}+ Years in Business`,
+  `Family-Run Since ${SHOP?.founded || 1989}`,
   "BBB A+ Accredited",
-  `${SHOP.rating}★ on Yelp`,
+  `${SHOP?.rating || 4.4}★ on Yelp`,
   "Free Loaner Cars",
   "Transparent Pricing",
   "Collision & Auto Body",

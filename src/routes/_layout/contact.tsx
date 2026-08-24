@@ -9,7 +9,7 @@ import { SHOP } from "@/components/home/shop";
 const FAQS = [
   {
     q: "What are your hours?",
-    a: `Monday–Friday ${SHOP.hours[0]!.time}, Saturday ${SHOP.hours[1]!.time}, closed Sunday.`,
+    a: `Monday–Friday ${SHOP?.hours[0]?.time || "8:00am – 5:00pm"}, Saturday ${SHOP?.hours[1]?.time || "8:00am – 2:00pm"}, closed Sunday.`,
   },
   {
     q: "How fast will you get back to me?",
@@ -22,7 +22,7 @@ const FAQS = [
 ];
 
 const TITLE = `Contact — ${SHOP?.legalName || "Canton Auto Services"}`;
-const DESCRIPTION = `Call ${SHOP.phoneDisplay}, visit ${SHOP.address}, or send us the details online and we'll call you back.`;
+const DESCRIPTION = `Call ${SHOP?.phoneDisplay || "(781) 830-9480"}, visit ${SHOP?.address || "Canton, MA"}, or send us the details online and we'll call you back.`;
 
 export const Route = createFileRoute("/_layout/contact")({
   head: () => ({

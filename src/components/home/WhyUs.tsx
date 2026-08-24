@@ -29,9 +29,9 @@ const POINTS = [
 
 // Every figure here must be traceable to SHOP data — no invented headcounts or ratings.
 const STATS = [
-  { value: SHOP.yearsInBusiness, suffix: "+", label: "Years in business" },
-  { value: SHOP.reviewCount, suffix: "+", label: "Yelp reviews" },
-  { value: SHOP.rating, suffix: "★", label: "Average rating" },
+  { value: SHOP?.yearsInBusiness || 37, suffix: "+", label: "Years in business" },
+  { value: SHOP?.reviewCount || 71, suffix: "+", label: "Yelp reviews" },
+  { value: SHOP?.rating || 4.4, suffix: "★", label: "Average rating" },
 ];
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {

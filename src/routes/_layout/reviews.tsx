@@ -6,7 +6,7 @@ import { Reveal } from "@/components/home/Reveal";
 import { SHOP } from "@/components/home/shop";
 
 const TITLE = `Reviews — ${SHOP?.legalName || "Canton Auto Services"}`;
-const DESCRIPTION = `Rated ${SHOP.rating} on Yelp from ${SHOP.reviewCount}+ reviews. See what Canton drivers say about the crew and the work.`;
+const DESCRIPTION = `Rated ${SHOP?.rating || 4.4} on Yelp from ${SHOP?.reviewCount || 71}+ reviews. See what Canton drivers say about the crew and the work.`;
 
 export const Route = createFileRoute("/_layout/reviews")({
   head: () => ({

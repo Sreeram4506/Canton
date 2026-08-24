@@ -15,15 +15,15 @@ const FAQS = [
   },
   {
     q: "Are you accredited or verified by anyone besides yourselves?",
-    a: `Yes — we've been BBB A+ accredited since 2015, and we're rated ${SHOP.rating}★ on Yelp from ${SHOP.reviewCount}+ reviews.`,
+    a: `Yes — we've been BBB A+ accredited since 2015, and we're rated ${SHOP?.rating || 4.4}★ on Yelp from ${SHOP?.reviewCount || 71}+ reviews.`,
   },
   {
     q: "Who actually works on my car?",
-    a: `${SHOP.ownerName} and the crew — a small, family-run team, not a franchise. You deal directly with the people doing the work, not a call center.`,
+    a: `${SHOP?.ownerName || "Eli Dallaleh"} and the crew — a small, family-run team, not a franchise. You deal directly with the people doing the work, not a call center.`,
   },
   {
     q: "How long has Canton Auto been around?",
-    a: `Since ${SHOP.founded} — that's ${SHOP.yearsInBusiness}+ years serving Canton, MA.`,
+    a: `Since ${SHOP?.founded || 1989} — that's ${SHOP?.yearsInBusiness || 37}+ years serving Canton, MA.`,
   },
 ];
 

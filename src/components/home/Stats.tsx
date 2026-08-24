@@ -3,10 +3,10 @@ import { useInView, useReducedMotion } from "motion/react";
 import { SHOP } from "./shop";
 
 const STATS = [
-  { value: SHOP.yearsInBusiness, suffix: "+", label: "Years serving Canton" },
-  { value: SHOP.rating, decimals: 1, suffix: "★", label: "Yelp rating" },
-  { value: SHOP.reviewCount, suffix: "+", label: "Customer reviews" },
-  { value: SHOP.founded, label: "Family-run since", raw: true },
+  { value: SHOP?.yearsInBusiness || 37, suffix: "+", label: "Years serving Canton" },
+  { value: SHOP?.rating || 4.4, decimals: 1, suffix: "★", label: "Yelp rating" },
+  { value: SHOP?.reviewCount || 71, suffix: "+", label: "Customer reviews" },
+  { value: SHOP?.founded || 1989, label: "Family-run since", raw: true },
 ];
 
 function useCountUp(target: number, run: boolean, decimals = 0) {

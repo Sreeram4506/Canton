@@ -1,8 +1,8 @@
-import { CalendarCheck, Search, KeyRound } from "lucide-react";
+import { CalendarCheck, ClipboardList, KeyRound } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { PROCESS_STEPS } from "./shop";
 
-const ICONS = [CalendarCheck, Search, KeyRound] as const;
+const ICONS = [CalendarCheck, ClipboardList, KeyRound] as const;
 const STEPS = PROCESS_STEPS.map((step, i) => ({ ...step, icon: ICONS[i]! }));
 
 export function Process() {
@@ -22,11 +22,17 @@ export function Process() {
                 <span className="brand-gradient grid h-11 w-11 place-items-center rounded-full text-base font-bold text-primary-foreground">
                   {i + 1}
                 </span>
-                <div className="mt-5 flex items-center gap-2">
+                <span className="mt-5 block text-[11px] font-bold uppercase tracking-[0.2em] text-primary-on-dark">
+                  {step.actor}
+                </span>
+                <div className="mt-1 flex items-center gap-2">
                   <step.icon className="h-4 w-4 shrink-0 text-primary-on-dark" />
                   <h3 className="font-display text-lg font-bold">{step.title}</h3>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-white/70">{step.text}</p>
+                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-primary-on-dark">
+                  {step.detail}
+                </p>
               </li>
             </Reveal>
           ))}

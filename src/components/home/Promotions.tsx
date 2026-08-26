@@ -4,11 +4,11 @@ import { Reveal } from "./Reveal";
 
 const PROMOTIONS = [
   {
-    image: "/promotions/road-trip-check.svg",
-    tag: "Before a long drive",
-    title: "Road-Trip Ready Check",
-    text: "Heading out of town? We'll check your battery, belts, fluids, tires and brakes before you go — free with any scheduled visit.",
-    slug: "auto-repair-diagnostics",
+    image: "/services/oil-maintenance.svg",
+    tag: "Routine Maintenance",
+    title: "Oil & Preventative Service",
+    text: "Regular oil changes and preventative maintenance are the cheapest insurance your car has. We handle scheduled fluid service to catch small issues early.",
+    slug: "oil-maintenance",
   },
   {
     image: "/promotions/tire-changeover.svg",
@@ -20,9 +20,9 @@ const PROMOTIONS = [
   {
     image: "/promotions/ac-heat-check.svg",
     tag: "Seasonal",
-    title: "Heating & AC Check",
-    text: "Get ahead of it before the first heat wave or cold snap — a quick performance check catches a weak AC or heater before it fails on you.",
-    slug: "ac-heating-repair",
+    title: "Winterization Services",
+    text: "A complete package for winter: battery testing, coolant (antifreeze) check, tire inspection, fluid top-offs, wiper blade replacement, belts and hoses check, and a heater & defroster test.",
+    slug: "winterization-services",
   },
 ];
 

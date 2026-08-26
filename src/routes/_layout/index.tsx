@@ -10,10 +10,11 @@ import { Stats } from "@/components/home/Stats";
 import { WhyUs } from "@/components/home/WhyUs";
 import { Testimonials } from "@/components/home/Testimonials";
 import { ContactBand } from "@/components/home/ContactBand";
+import { AutoSalesBanner } from "@/components/home/AutoSalesBanner";
 
-const TITLE = "Canton Auto Services & Auto Body — Repair, Collision & Classic Restoration";
+const TITLE = "Canton Auto Services & Auto Body — Repair & Collision";
 const DESCRIPTION =
-  "Canton Auto Services & Auto Body has served Canton, MA since 1989: diagnostics, brakes, collision repair, classic car restoration and state inspections. BBB A+ accredited, 4.4★ on Yelp.";
+  "Canton Auto Services & Auto Body has served Canton, MA since 1986: diagnostics, brakes, collision repair, and state inspections. BBB A+ accredited, 4.4★ on Google.";
 
 export const Route = createFileRoute("/_layout/")({
   head: () => ({
@@ -44,7 +45,7 @@ export const Route = createFileRoute("/_layout/")({
             postalCode: "02021",
             addressCountry: "US",
           },
-          openingHours: ["Mo-Fr 08:00-17:00", "Sa 08:00-14:00"],
+          openingHours: ["Mo-Fr 08:00-18:00", "Sa 08:00-14:00"],
           aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: SHOP?.rating || 4.4,
@@ -89,6 +90,7 @@ function Index() {
       <WhyUs />
       <Promotions />
       <Services />
+      <AutoSalesBanner />
       <Testimonials />
       <LocationsSection />
       <ContactBand />

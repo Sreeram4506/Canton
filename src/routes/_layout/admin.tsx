@@ -146,7 +146,7 @@ const INITIAL_APPOINTMENTS: Appointment[] = [
     phone: "(781) 555-8820",
     email: "rdriscoll@verizon.net",
     vehicle: "1968 Chevrolet Camaro SS",
-    service: "Classic & Muscle Car Restoration",
+    service: "Auto Repair & Diagnostics",
     preferredDate: "Tomorrow",
     preferredTime: "10:00 AM",
     status: "Pending",
@@ -271,7 +271,6 @@ const SERVICE_PIE_DATA = [
   { name: "General Diagnostics", value: 20, color: "#3b82f6" },
   { name: "Brakes & Suspension", value: 15, color: "#10b981" },
   { name: "Oil & Maintenance", value: 12, color: "#f59e0b" },
-  { name: "Classic Restoration", value: 8, color: "#8b5cf6" },
 ];
 
 function AdminPage() {
@@ -346,18 +345,18 @@ function AdminPage() {
   // Handle PIN unlock
   const handleUnlock = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
-    if (pinInput === "1989" || pinInput === "0000" || pinInput === "admin") {
+    if (pinInput === "1986" || pinInput === "0000" || pinInput === "admin") {
       setIsUnlocked(true);
       setPinError(false);
       toast.success("Admin Portal unlocked. Welcome, Eli!");
     } else {
       setPinError(true);
-      toast.error("Incorrect PIN code. Try '1989' or click Quick Demo Access.");
+      toast.error("Incorrect PIN code. Try '1986' or click Quick Demo Access.");
     }
   };
 
   const handleQuickDemoUnlock = () => {
-    setPinInput("1989");
+    setPinInput("1986");
     setIsUnlocked(true);
     toast.success("Welcome to Canton Auto Admin Portal (Demo Mode)");
   };
@@ -446,7 +445,7 @@ function AdminPage() {
             <form onSubmit={handleUnlock} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="pin" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  Manager Security PIN (Default: 1989)
+                  Manager Security PIN (Default: 1986)
                 </Label>
                 <div className="relative">
                   <Input
@@ -464,7 +463,7 @@ function AdminPage() {
                 </div>
                 {pinError && (
                   <p className="text-xs text-destructive flex items-center gap-1 mt-1">
-                    <AlertCircle className="h-3.5 w-3.5" /> Incorrect PIN. Enter 1989 or click below.
+                    <AlertCircle className="h-3.5 w-3.5" /> Incorrect PIN. Enter 1986 or click below.
                   </p>
                 )}
               </div>

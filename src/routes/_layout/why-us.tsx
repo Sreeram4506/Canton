@@ -15,7 +15,7 @@ const FAQS = [
   },
   {
     q: "Are you accredited or verified by anyone besides yourselves?",
-    a: `Yes — we've been BBB A+ accredited since 2015, and we're rated ${SHOP?.rating || 4.4}★ on Yelp from ${SHOP?.reviewCount || 71}+ reviews.`,
+    a: `Yes — we've been BBB A+ accredited since 2015, and we're rated ${SHOP?.rating || 4.4}★ on Google from ${SHOP?.reviewCount || 200}+ reviews.`,
   },
   {
     q: "Who actually works on my car?",
@@ -23,13 +23,13 @@ const FAQS = [
   },
   {
     q: "How long has Canton Auto been around?",
-    a: `Since ${SHOP?.founded || 1989} — that's ${SHOP?.yearsInBusiness || 37}+ years serving Canton, MA.`,
+    a: `Since ${SHOP?.founded || 1986} — that's ${SHOP?.yearsInBusiness || 37}+ years serving Canton, MA.`,
   },
 ];
 
 const TITLE = `Why ${SHOP?.name || "Canton Auto"} — ${SHOP?.legalName || "Canton Auto Services"}`;
 const DESCRIPTION =
-  "Family-run since 1989, BBB A+ accredited, transparent written estimates, and free loaner cars on longer repairs.";
+  "Family-run since 1986, BBB A+ accredited, transparent written estimates, and free loaner cars on longer repairs.";
 
 export const Route = createFileRoute("/_layout/why-us")({
   head: () => ({

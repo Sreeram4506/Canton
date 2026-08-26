@@ -4,9 +4,9 @@ import { SHOP } from "./shop";
 
 const STATS = [
   { value: SHOP?.yearsInBusiness || 37, suffix: "+", label: "Years serving Canton" },
-  { value: SHOP?.rating || 4.4, decimals: 1, suffix: "★", label: "Yelp rating" },
-  { value: SHOP?.reviewCount || 71, suffix: "+", label: "Customer reviews" },
-  { value: SHOP?.founded || 1989, label: "Family-run since", raw: true },
+  { value: SHOP?.rating || 4.4, decimals: 1, suffix: "★", label: "Google rating" },
+  { value: SHOP?.reviewCount || 200, suffix: "+", label: "Customer reviews" },
+  { value: SHOP?.founded || 1986, label: "Family-run since", raw: true },
 ];
 
 function useCountUp(target: number, run: boolean, decimals = 0) {

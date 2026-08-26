@@ -13,8 +13,7 @@ export function Services() {
               Every service, one front desk.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              From a warning-light scan to full collision repair or a ground-up classic car
-              restoration, the shop handles domestic, import, and vintage vehicles alike.
+              From a warning-light scan to full collision repair the shop handles domestic, import, and vintage vehicles alike.
             </p>
           </div>
           <Link
@@ -32,24 +31,28 @@ export function Services() {
               <Link
                 to="/services/$slug"
                 params={{ slug: service.slug }}
-                className="group flex h-full flex-col rounded-2xl border border-border bg-background p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="group flex flex-row sm:flex-col items-center sm:items-start h-auto sm:h-full gap-4 sm:gap-0 rounded-2xl border border-border bg-background p-4 sm:p-6 shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-elevated sm:hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                <span className="mb-6 grid h-14 w-14 place-items-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                  <service.icon className="h-7 w-7" />
+                <span className="shrink-0 grid h-12 w-12 sm:mb-6 sm:h-14 sm:w-14 place-items-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                  <service.icon className="h-5 w-5 sm:h-7 sm:w-7" />
                 </span>
                 
-                <h3 className="mb-3 font-display text-xl font-bold transition-colors group-hover:text-primary">
-                  {service.title}
-                </h3>
-                
-                <p className="mb-8 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  {service.text}
-                </p>
-                
-                <span className="mt-auto inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-[0.16em] text-primary">
-                  Details
-                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-                </span>
+                <div className="flex flex-1 flex-col sm:h-full">
+                  <h3 className="font-display text-base sm:mb-3 sm:text-xl font-bold leading-tight transition-colors group-hover:text-primary">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="hidden sm:flex mb-8 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {service.text}
+                  </p>
+                  
+                  <span className="hidden sm:inline-flex mt-auto items-center gap-1.5 text-xs font-extrabold uppercase tracking-[0.16em] text-primary">
+                    Details
+                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                  </span>
+                </div>
+
+                <ArrowRight className="h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary sm:hidden" />
               </Link>
             </Reveal>
           ))}

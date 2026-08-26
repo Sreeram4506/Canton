@@ -3,13 +3,12 @@ import { SHOP } from "./shop";
 
 const ITEMS = [
   `${SHOP?.yearsInBusiness || 37}+ Years in Business`,
-  `Family-Run Since ${SHOP?.founded || 1989}`,
+  `Family-Run Since ${SHOP?.founded || 1986}`,
   "BBB A+ Accredited",
-  `${SHOP?.rating || 4.4}★ on Yelp`,
+  `${SHOP?.rating || 4.4}★ on Google`,
   "Free Loaner Cars",
   "Transparent Pricing",
   "Collision & Auto Body",
-  "Classic Car Restoration",
   "State Inspection & Emissions",
 ];
 
@@ -40,8 +39,8 @@ export function TrustMarquee() {
       </div>
       <span className="sr-only">
         {SHOP.yearsInBusiness}+ years in business, family-run since {SHOP.founded}, BBB A+
-        accredited, {SHOP.rating} stars on Yelp, free loaner cars, transparent pricing, collision
-        and auto body, classic car restoration, state inspection and emissions.
+        accredited, {SHOP.rating} stars on Google, free loaner cars, transparent pricing, collision
+        and auto body, state inspection and emissions.
       </span>
     </section>
   );

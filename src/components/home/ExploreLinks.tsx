@@ -37,6 +37,28 @@ export function ExploreLinks() {
               </Link>
             </Reveal>
           ))}
+          <Reveal delay={NAV.length * 0.06}>
+            <a
+              href="http://www.washingtonstreetautosales.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex items-center justify-between gap-6 py-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <span
+                aria-hidden="true"
+                className="absolute inset-y-0 -left-4 -right-4 origin-left scale-x-0 bg-surface transition-transform duration-300 ease-out group-hover:scale-x-100 sm:-left-6 sm:-right-6"
+              />
+              <div className="relative min-w-0">
+                <h3 className="font-display text-xl font-bold transition-colors group-hover:text-primary sm:text-2xl">
+                  Auto Sales
+                </h3>
+                <p className="mt-1 max-w-lg text-sm text-muted-foreground sm:text-base">
+                  Looking for a quality pre-owned vehicle? We also sell cars at Washington Street Auto Sales.
+                </p>
+              </div>
+              <ArrowUpRight className="relative h-6 w-6 shrink-0 text-muted-foreground transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+            </a>
+          </Reveal>
         </div>
       </div>
     </section>

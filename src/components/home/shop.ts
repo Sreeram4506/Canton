@@ -7,15 +7,15 @@ export const SHOP = {
   phoneDisplay: "(781) 830-9480",
   address: "879B Washington St, Canton, MA 02021",
   hours: [
-    { day: "Mon – Fri", time: "8:00am – 5:00pm EST" },
+    { day: "Mon – Fri", time: "8:00am – 6:00pm EST" },
     { day: "Saturday", time: "8:00am – 2:00pm EST" },
     { day: "Sunday", time: "Closed" },
   ],
-  founded: 1989,
-  yearsInBusiness: new Date().getFullYear() - 1989,
+  founded: 1986,
+  yearsInBusiness: new Date().getFullYear() - 1986,
   rating: 4.4,
-  reviewCount: 71,
-  yelpUrl: "https://www.yelp.com/biz/canton-auto-services-and-auto-body-canton",
+  reviewCount: 200,
+  googleUrl: "https://www.google.com/maps/search/?api=1&query=Canton+Auto+Services+Auto+Body+Canton+MA",
   mapsEmbedUrl: "https://www.google.com/maps?q=879B+Washington+St,+Canton,+MA+02021&output=embed",
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=879B+Washington+St,+Canton,+MA+02021",
 };
@@ -72,11 +72,11 @@ export const PROCESS_STEPS = [
 /** Posted hours as [openMinutes, closeMinutes) from midnight, indexed by getDay() (0 = Sunday). */
 const HOURS_BY_DAY: ReadonlyArray<readonly [number, number] | null> = [
   null,
-  [8 * 60, 17 * 60],
-  [8 * 60, 17 * 60],
-  [8 * 60, 17 * 60],
-  [8 * 60, 17 * 60],
-  [8 * 60, 17 * 60],
+  [8 * 60, 18 * 60],
+  [8 * 60, 18 * 60],
+  [8 * 60, 18 * 60],
+  [8 * 60, 18 * 60],
+  [8 * 60, 18 * 60],
   [8 * 60, 14 * 60],
 ];
 
@@ -154,7 +154,6 @@ export function getOpenStatus(now = new Date()) {
 export const SERVICE_OPTIONS = [
   "Auto Repair & Diagnostics",
   "Collision & Auto Body",
-  "Classic & Muscle Car Restoration",
   "Brakes & Suspension",
   "State Inspection & Emissions",
   "Oil & Preventative Maintenance",

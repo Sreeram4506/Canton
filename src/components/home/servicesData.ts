@@ -56,21 +56,7 @@ export const SERVICES: ServiceItem[] = [
       "Free loaner cars available on longer repairs",
     ],
   },
-  {
-    slug: "classic-restoration",
-    icon: Cog,
-    title: "Classic & Muscle Car Restoration",
-    text: "Ground-up restorations and custom upgrades for vintage and muscle cars, done in-house.",
-    image: "/services/classic-restoration.svg",
-    intro:
-      "Whether it's a barn-find that needs a full ground-up rebuild or a muscle car ready for custom upgrades, our crew treats every restoration like the long-term project it is — done in-house, start to finish.",
-    highlights: [
-      "Ground-up restorations for vintage and muscle cars",
-      "Rust repair, metal fabrication and panel replacement",
-      "Custom performance and cosmetic upgrades",
-      "Period-correct and show-quality finish work",
-    ],
-  },
+
   {
     slug: "brakes-suspension",
     icon: Disc3,
@@ -151,22 +137,7 @@ export const SERVICES: ServiceItem[] = [
       "Written estimate before any repair starts",
     ],
   },
-  {
-    slug: "ac-heating-repair",
-    icon: Snowflake,
-    title: "Heating & AC Repair",
-    text: "Get the air conditioning and cabin heat working right, in every season.",
-    image: "/services/ac-heating-repair.svg",
-    intro:
-      "Warm air out of the vents in July or no heat in January — we diagnose the actual cause, whether it's a refrigerant leak, a failing compressor, or a heating system issue, and fix it, not just recharge it and send you off.",
-    highlights: [
-      "AC diagnostics, recharge and leak repair",
-      "R134a and R1234yf refrigerant service",
-      "Heating system diagnosis and repair",
-      "Compressor and blower motor service",
-      "Cabin air filter replacement",
-    ],
-  },
+
   {
     slug: "key-programming",
     icon: KeyRound,
@@ -182,6 +153,24 @@ export const SERVICES: ServiceItem[] = [
       "Spare key cutting for most makes and models",
       "On-site mobile key service by appointment",
       "No dealership wait times",
+    ],
+  },
+  {
+    slug: "winterization-services",
+    icon: Snowflake,
+    title: "Winterization Services",
+    text: "Prepare your vehicle for cold weather with a complete battery, coolant, and safety check.",
+    image: "/promotions/ac-heat-check.svg",
+    intro:
+      "A car winterization special is a maintenance package designed to prepare your vehicle for cold weather, snow, and ice. We bundle several essential inspections and services together into a single flat rate to ensure your car stays reliable and safe all winter long.",
+    highlights: [
+      "Battery Test: Checking strength and charging capacity for cold weather",
+      "Coolant (Antifreeze) Check: Measuring concentration to prevent freezing",
+      "Tire Inspection: Checking pressure, tread depth, and traction readiness",
+      "Fluid Top-Off: Washer fluid with de-icing formula, oil, and brake fluid",
+      "Wiper Blade Replacement: Swapping old blades for new winter-rated wipers",
+      "Belts and Hoses Check: Inspecting rubber components for cold-weather cracks",
+      "Heater and Defroster Test: Ensuring cabin heat and visibility work properly",
     ],
   },
 ];

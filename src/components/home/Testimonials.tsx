@@ -12,8 +12,8 @@ const HIGHLIGHTS = [
     text: "After a collision, reviewers describe Eli arranging a rental car and handling the insurance claim directly, with repairs often finished on time or early.",
   },
   {
-    title: "Trusted with classic cars",
-    text: "Owners bring in vintage and muscle cars for restoration and describe a shop that treats them with real attention to detail.",
+    title: "Trusted with every car",
+    text: "Owners bring in vintage and muscle cars for repair and describe a shop that treats them with real attention to detail.",
   },
   {
     title: "Fair, honest pricing",
@@ -43,7 +43,7 @@ export function Testimonials() {
                   />
                 ))}
               </span>
-              {SHOP.rating} on Yelp · {SHOP.reviewCount}+ reviews
+              {SHOP.rating} on Google · {SHOP.reviewCount}+ reviews
             </span>
             <span className="inline-flex items-center gap-2">
               <BadgeCheck className="h-4 w-4 text-primary" />

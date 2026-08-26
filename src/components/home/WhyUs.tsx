@@ -18,7 +18,7 @@ const POINTS = [
   {
     icon: Wrench,
     title: "Repair & auto body, one roof",
-    text: "From routine maintenance to full collision and classic car restoration.",
+    text: "From routine maintenance to full collision and auto body.",
   },
   {
     icon: Car,
@@ -30,7 +30,7 @@ const POINTS = [
 // Every figure here must be traceable to SHOP data — no invented headcounts or ratings.
 const STATS = [
   { value: SHOP?.yearsInBusiness || 37, suffix: "+", label: "Years in business" },
-  { value: SHOP?.reviewCount || 71, suffix: "+", label: "Yelp reviews" },
+  { value: SHOP?.reviewCount || 200, suffix: "+", label: "Google reviews" },
   { value: SHOP?.rating || 4.4, suffix: "★", label: "Average rating" },
 ];
 

@@ -6,7 +6,7 @@ import { Reveal } from "@/components/home/Reveal";
 import { SHOP } from "@/components/home/shop";
 
 const TITLE = `Reviews — ${SHOP?.legalName || "Canton Auto Services"}`;
-const DESCRIPTION = `Rated ${SHOP?.rating || 4.4} on Yelp from ${SHOP?.reviewCount || 71}+ reviews. See what Canton drivers say about the crew and the work.`;
+const DESCRIPTION = `Rated ${SHOP?.rating || 4.4} on Google from ${SHOP?.reviewCount || 200}+ reviews. See what Canton drivers say about the crew and the work.`;
 
 export const Route = createFileRoute("/_layout/reviews")({
   head: () => ({
@@ -36,15 +36,15 @@ function ReviewsPage() {
             Had a good experience with us?
           </h2>
           <p className="mt-3 text-muted-foreground">
-            A few honest words on Yelp helps other Canton drivers find a shop they can trust.
+            A few honest words on Google helps other Canton drivers find a shop they can trust.
           </p>
           <a
-            href={SHOP.yelpUrl}
+            href={SHOP.googleUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-6 inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-200 hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
-            Leave a review on Yelp
+            Leave a review on Google
             <ArrowUpRight className="h-4 w-4" />
           </a>
         </Reveal>

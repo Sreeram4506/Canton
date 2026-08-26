@@ -49,7 +49,7 @@ export function Hero() {
             variants={riseItem}
             className="mt-5 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg"
           >
-            From complex engine diagnostics to full collision bodywork and classic car restoration,
+            From complex engine diagnostics to full collision bodywork ,
             Eli and the Canton Auto crew explain the work before the wrench turns.
           </motion.p>
 
@@ -89,7 +89,7 @@ export function Hero() {
                 ))}
               </div>
               <span>
-                {SHOP.rating}★ on Yelp ({SHOP.reviewCount}+ reviews)
+                {SHOP.rating}★ on Google ({SHOP.reviewCount}+ reviews)
               </span>
             </div>
             <span className="hidden sm:inline text-white/30">•</span>

@@ -35,7 +35,7 @@ Issue: ${String(data["issue"] || "")}`;
         <div className="grid gap-10 border-y border-border py-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:py-14">
           <Reveal>
             <h2 className="font-display text-3xl font-black leading-tight sm:text-5xl">
-              Tell the counter what the car is doing.
+              Describe the issue to our team.
             </h2>
             <p className="mt-5 max-w-md text-muted-foreground">
               Send the details and we'll come back with a time slot and a ballpark price. Prefer to

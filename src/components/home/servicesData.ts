@@ -138,23 +138,7 @@ export const SERVICES: ServiceItem[] = [
     ],
   },
 
-  {
-    slug: "key-programming",
-    icon: KeyRound,
-    title: "Key Cutting & Programming",
-    text: "Cut and program replacement keys and fobs, including transponder and push-to-start keys.",
-    image: "/services/key-programming.svg",
-    intro:
-      "Lost your only key or need a spare cut? We cut and program replacement keys and remote fobs — including modern transponder and push-to-start keys — while your car is already in the shop or as a standalone visit.",
-    highlights: [
-      "Cut and program transponder keys and fobs",
-      "Push-to-start and remote key programming",
-      "Immobilizer system reset and re-pairing",
-      "Spare key cutting for most makes and models",
-      "On-site mobile key service by appointment",
-      "No dealership wait times",
-    ],
-  },
+
   {
     slug: "winterization-services",
     icon: Snowflake,

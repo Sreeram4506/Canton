@@ -10,7 +10,7 @@ export function Services() {
         <Reveal className="flex flex-col justify-between gap-6 border-b border-border pb-8 lg:flex-row lg:items-end">
           <div className="max-w-2xl">
             <h2 className="font-display text-3xl font-black sm:text-5xl">
-              Every service, one front desk.
+              Every service, under one roof.
             </h2>
             <p className="mt-4 text-muted-foreground">
               From a warning-light scan to full collision repair the shop handles domestic, import, and vintage vehicles alike.

@@ -3,7 +3,7 @@ import { SHOP } from "./shop";
 
 const ITEMS = [
   `${SHOP?.yearsInBusiness || 37}+ Years in Business`,
-  `Family-Run Since ${SHOP?.founded || 1986}`,
+  `Family-Run Since ${SHOP?.founded || 1996}`,
   "BBB A+ Accredited",
   `${SHOP?.rating || 4.4}★ on Google`,
   "Free Loaner Cars",

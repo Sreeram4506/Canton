@@ -6,7 +6,7 @@ const STATS = [
   { value: SHOP?.yearsInBusiness || 37, suffix: "+", label: "Years serving Canton" },
   { value: SHOP?.rating || 4.4, decimals: 1, suffix: "★", label: "Google rating" },
   { value: SHOP?.reviewCount || 200, suffix: "+", label: "Customer reviews" },
-  { value: SHOP?.founded || 1986, label: "Family-run since", raw: true },
+  { value: SHOP?.founded || 1996, label: "Family-run since", raw: true },
 ];
 
 function useCountUp(target: number, run: boolean, decimals = 0) {

@@ -23,13 +23,13 @@ const FAQS = [
   },
   {
     q: "How long has Canton Auto been around?",
-    a: `Since ${SHOP?.founded || 1986} — that's ${SHOP?.yearsInBusiness || 37}+ years serving Canton, MA.`,
+    a: `Since ${SHOP?.founded || 1996} — that's ${SHOP?.yearsInBusiness || 30}+ years serving Canton, MA.`,
   },
 ];
 
 const TITLE = `Why ${SHOP?.name || "Canton Auto"} — ${SHOP?.legalName || "Canton Auto Services"}`;
 const DESCRIPTION =
-  "Family-run since 1986, BBB A+ accredited, transparent written estimates, and free loaner cars on longer repairs.";
+  "Family-run since 1996, BBB A+ accredited, transparent written estimates, and free loaner cars on longer repairs.";
 
 export const Route = createFileRoute("/_layout/why-us")({
   head: () => ({

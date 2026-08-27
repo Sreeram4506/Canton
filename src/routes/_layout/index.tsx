@@ -14,7 +14,7 @@ import { AutoSalesBanner } from "@/components/home/AutoSalesBanner";
 
 const TITLE = "Canton Auto Services & Auto Body — Repair & Collision";
 const DESCRIPTION =
-  "Canton Auto Services & Auto Body has served Canton, MA since 1986: diagnostics, brakes, collision repair, and state inspections. BBB A+ accredited, 4.4★ on Google.";
+  "Canton Auto Services & Auto Body has served Canton, MA since 1996: diagnostics, brakes, collision repair, and state inspections. BBB A+ accredited, 4.4★ on Google.";
 
 export const Route = createFileRoute("/_layout/")({
   head: () => ({

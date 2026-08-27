@@ -345,18 +345,18 @@ function AdminPage() {
   // Handle PIN unlock
   const handleUnlock = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
-    if (pinInput === "1986" || pinInput === "0000" || pinInput === "admin") {
+    if (pinInput === "1996" || pinInput === "0000" || pinInput === "admin") {
       setIsUnlocked(true);
       setPinError(false);
       toast.success("Admin Portal unlocked. Welcome, Eli!");
     } else {
       setPinError(true);
-      toast.error("Incorrect PIN code. Try '1986' or click Quick Demo Access.");
+      toast.error("Incorrect PIN code. Try '1996' or click Quick Demo Access.");
     }
   };
 
   const handleQuickDemoUnlock = () => {
-    setPinInput("1986");
+    setPinInput("1996");
     setIsUnlocked(true);
     toast.success("Welcome to Canton Auto Admin Portal (Demo Mode)");
   };
@@ -445,7 +445,7 @@ function AdminPage() {
             <form onSubmit={handleUnlock} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="pin" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  Manager Security PIN (Default: 1986)
+                  Manager Security PIN (Default: 1996)
                 </Label>
                 <div className="relative">
                   <Input
@@ -463,7 +463,7 @@ function AdminPage() {
                 </div>
                 {pinError && (
                   <p className="text-xs text-destructive flex items-center gap-1 mt-1">
-                    <AlertCircle className="h-3.5 w-3.5" /> Incorrect PIN. Enter 1986 or click below.
+                    <AlertCircle className="h-3.5 w-3.5" /> Incorrect PIN. Enter 1996 or click below.
                   </p>
                 )}
               </div>

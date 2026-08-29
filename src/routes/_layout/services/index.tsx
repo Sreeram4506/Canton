@@ -7,7 +7,7 @@ import { SHOP } from "@/components/home/shop";
 const FAQS = [
   {
     q: "Do you work on all makes and models?",
-    a: "Yes — our bays handle domestic, import, and vintage vehicles alike, from routine maintenance to full collision repair.",
+    a: "Yes — our bays handle domestic, import, and antique cars alike, from routine maintenance to full collision repair.",
   },
   {
     q: "Will you deal with my insurance company directly?",

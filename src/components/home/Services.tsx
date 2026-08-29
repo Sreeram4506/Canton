@@ -13,7 +13,7 @@ export function Services() {
               Every service, under one roof.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              From a warning-light scan to full collision repair the shop handles domestic, import, and vintage vehicles alike.
+              From a warning-light scan to full collision repair the shop handles domestic, import, and antique cars alike.
             </p>
           </div>
           <Link

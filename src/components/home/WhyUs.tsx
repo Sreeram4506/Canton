@@ -78,13 +78,20 @@ export function WhyUs() {
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-center">
           <Reveal>
             <h2 className="font-display text-3xl font-black leading-tight sm:text-5xl">
-              Family-run, straight with you since {SHOP.founded}
+              Family-run business since {SHOP.founded}
             </h2>
-            <p className="mt-4 max-w-lg text-muted-foreground">
-              We show you the worn part, explain what it does, and price the fix before the work
-              starts. That's how {SHOP.ownerName} and the crew have done it for{" "}
-              {SHOP.yearsInBusiness} years.
-            </p>
+
+            <ol className="mt-8 space-y-3 text-muted-foreground list-decimal list-inside text-lg">
+              <li>Clear Communications</li>
+              <li>Very accurate diagnosis and estimates</li>
+              <li>Honest feedback and recommendations</li>
+              <li>Certified technicians with at least 5 years experience</li>
+              <li>
+                <span className="font-semibold text-foreground">Personalized Care:</span> We take
+                our time and listen to your concerns and tailor our recommendations according to your
+                needs.
+              </li>
+            </ol>
 
             <dl className="mt-10 grid grid-cols-3 divide-x divide-border border-y border-border">
               {STATS.map((stat) => (

@@ -35,7 +35,7 @@ export const SERVICES: ServiceItem[] = [
       "Computer diagnostic scan for check-engine and warning lights",
       "Engine, electrical and drivetrain troubleshooting",
       "Written, itemized estimate before any repair starts",
-      "Domestic, import and vintage vehicles",
+      "Domestic, import and antique cars",
     ],
   },
   {
@@ -45,7 +45,7 @@ export const SERVICES: ServiceItem[] = [
     text: "Frame straightening, bumper and panel repair, and paint-matched bodywork after an accident.",
     image: "/services/collision-auto-body.svg",
     intro:
-      "After an accident, our body shop handles everything from a scuffed bumper to full frame straightening — with paint matched to your exact factory finish and we coordinate directly with your insurance company.",
+      "After an accident, our body shop handles everything from a scuffed bumper to full frame straightening with paint matched to your exact factory finish. We coordinate directly with your insurance company to provide a detailed estimate and complete the repairs within the allotted timeframe.",
     highlights: [
       "Frame straightening and structural repair",
       "Bumper, panel and fender replacement",
@@ -64,7 +64,7 @@ export const SERVICES: ServiceItem[] = [
     text: "Pads, rotors, shocks and steering components — inspected free with every visit.",
     image: "/services/brakes-suspension.svg",
     intro:
-      "Braking and handling are the two things you can't afford to ignore. We inspect pads, rotors, shocks and steering components free with every visit, and only recommend what your car actually needs — rotors get resurfaced when they're within spec, and replaced only when they're not.",
+      "We inspect pads, rotors, shocks and steering components free with every visit, and only recommend what your car actually needs — rotors get resurfaced when they're within spec, and replaced only when they're not.",
     highlights: [
       "Brake pad, rotor and caliper service",
       "Brake fluid flush and inspection",

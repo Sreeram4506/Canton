@@ -65,12 +65,7 @@ export function SiteFooter() {
           <p>
             © {new Date().getFullYear()} {SHOP.legalName}. All rights reserved.
           </p>
-          <Link
-            to="/admin"
-            className="inline-flex items-center gap-1 font-semibold text-white/60 transition-colors hover:text-primary-on-dark focus-visible:outline-none focus-visible:text-primary-on-dark"
-          >
-            Admin Portal
-          </Link>
+
         </div>
       </div>
     </footer>

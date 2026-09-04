@@ -13,12 +13,13 @@ export function Hero() {
       id="top"
       className="relative isolate flex min-h-[100svh] items-center overflow-hidden pb-24 pt-28 sm:pb-20 sm:pt-36"
     >
-      {/* Background Image & Overlays */}
-      <img
-        src="/cantonbg.png"
-        alt="Canton Auto Services shop storefront"
-        width={1600}
-        height={1200}
+      {/* Background Video & Overlays */}
+      <video
+        src="/hero-background.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
         className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
       />
 

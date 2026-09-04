@@ -36,11 +36,7 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-border/80 bg-background/95 shadow-[0_18px_45px_-34px_rgb(15_23_42_/_0.55)] backdrop-blur-xl"
-          : "border-transparent bg-transparent"
-      }`}
+      className="fixed inset-x-0 top-0 z-50 transition-all duration-300 border-transparent bg-transparent"
     >
       <div
         className={`mx-auto flex max-w-7xl items-center justify-between gap-5 px-4 transition-all duration-300 sm:px-6 ${
@@ -64,6 +60,14 @@ export function SiteHeader() {
               : "border border-border/80 bg-background/70"
           }`}
         >
+          <Link
+            to="/"
+            className={navLinkClass()}
+            activeProps={{ className: overHero ? "!text-primary-on-dark" : "!text-primary" }}
+            activeOptions={{ exact: true }}
+          >
+            Home
+          </Link>
           <Link
             to="/why-us"
             className={navLinkClass()}
@@ -144,6 +148,15 @@ export function SiteHeader() {
         }`}
       >
         <nav className="mx-auto flex max-w-7xl flex-col px-4 py-2 sm:px-6">
+          <Link
+            to="/"
+            onClick={() => setOpen(false)}
+            className="border-b border-border/60 py-3 text-sm font-bold uppercase tracking-wider text-muted-foreground transition-colors last:border-0 hover:text-foreground focus-visible:outline-none focus-visible:text-primary"
+            activeProps={{ className: "!text-primary" }}
+            activeOptions={{ exact: true }}
+          >
+            Home
+          </Link>
           <Link
             to="/why-us"
             onClick={() => setOpen(false)}

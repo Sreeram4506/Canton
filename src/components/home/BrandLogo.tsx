@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { SHOP } from "./shop";
 
-const LOGO_SRC = "/cantonlogowbg.png";
+const LOGO_SRC = "/logobgrm.png";
 
 /**
  * The real signage wordmark is supplied by the shop and may not be present yet.

@@ -16,13 +16,22 @@ export function Hero() {
       {/* Background Video & Overlays */}
       <video
         src="/hero-background.mp4"
+        poster="/hero-background-poster.jpg"
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
         className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
       />
-
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-gradient-to-t from-black/85 via-black/40 to-black/10"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-black/70 via-black/20 to-transparent"
+      />
 
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6">
         <motion.div
@@ -50,8 +59,8 @@ export function Hero() {
             variants={riseItem}
             className="mt-5 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg"
           >
-            From complex engine diagnostics to full collision bodywork ,
-            Eli and the Canton Auto crew explain the work before the wrench turns.
+            From complex engine diagnostics to full collision bodywork , Eli and the Canton Auto
+            crew explain the work before the wrench turns.
           </motion.p>
 
           <motion.div
@@ -99,7 +108,6 @@ export function Hero() {
             </div>
           </motion.div>
         </motion.div>
-
       </div>
     </section>
   );

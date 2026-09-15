@@ -52,15 +52,15 @@ export function Hero() {
             variants={riseItem}
             className="mt-5 max-w-4xl text-wrap font-display text-4xl font-black leading-[1.05] text-white sm:text-5xl lg:text-6xl"
           >
-            Repair, body work, and honest answers under one roof.
+            Repair, body work, car Detail and Car Sales. All in one stop and shop.
           </motion.h1>
 
           <motion.p
             variants={riseItem}
             className="mt-5 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg"
           >
-            From complex engine diagnostics to full collision bodywork , Eli and the Canton Auto
-            crew explain the work before the wrench turns.
+            From complex engine diagnostics to full collision bodywork , Our technicians will
+            explain the work before the wrench turns.
           </motion.p>
 
           <motion.div

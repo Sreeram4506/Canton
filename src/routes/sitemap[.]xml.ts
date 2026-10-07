@@ -14,8 +14,10 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: ({ request }) => {
-        // Derive the origin from the request so URLs are correct on any domain or preview deploy.
-        const origin = new URL(request.url).origin;
+        // Derive the origin from the request so URLs are correct on any domain or preview deploy,
+        // always advertising the bare domain (no leading "www.") as the canonical host.
+        const { protocol, host } = new URL(request.url);
+        const origin = `${protocol}//${host.replace(/^www\./, "")}`;
 
         const entries = [
           ...STATIC_PATHS,

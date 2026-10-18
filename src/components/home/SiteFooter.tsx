@@ -65,13 +65,13 @@ export function SiteFooter() {
           <p>
             © {new Date().getFullYear()} {SHOP.legalName}. All rights reserved.
           </p>
-          <p>
-            Powered by{" "}
+          <p className="inline-flex items-center gap-2 text-white/70">
+            Powered by
             <a
               href="https://www.indraam.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-white/80 underline-offset-4 transition-colors hover:text-primary-on-dark hover:underline focus-visible:outline-none focus-visible:text-primary-on-dark focus-visible:underline"
+              className="rounded-full border border-primary-on-dark/50 bg-primary-on-dark/10 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.14em] text-primary-on-dark transition-colors hover:border-primary-on-dark hover:bg-primary-on-dark hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               Indraam
             </a>

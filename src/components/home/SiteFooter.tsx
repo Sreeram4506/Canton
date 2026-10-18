@@ -65,7 +65,17 @@ export function SiteFooter() {
           <p>
             © {new Date().getFullYear()} {SHOP.legalName}. All rights reserved.
           </p>
-
+          <p>
+            Powered by{" "}
+            <a
+              href="https://www.indraam.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-white/80 underline-offset-4 transition-colors hover:text-primary-on-dark hover:underline focus-visible:outline-none focus-visible:text-primary-on-dark focus-visible:underline"
+            >
+              Indraam
+            </a>
+          </p>
         </div>
       </div>
     </footer>

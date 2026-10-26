@@ -35,6 +35,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { saveSubmission } from "@/lib/submit-form";
 import { SERVICE_OPTIONS, SHOP } from "./shop";
 
 const bookingSchema = z.object({
@@ -91,7 +92,7 @@ export function BookAppointmentDialog({ trigger }: { trigger: ReactNode }) {
 
   const onSubmit = async (values: BookingValues) => {
     setSubmitting(true);
-    
+
     const text = `Hi, I'd like to book an appointment.
 Name: ${values.name}
 Phone: ${values.phone}
@@ -99,7 +100,18 @@ Vehicle: ${values.vehicle}
 Service: ${values.service}
 Date: ${format(values.date, "EEEE, MMM d")}
 Time: ${values.time}
-${values.notes ? `Notes: ${values.notes}` : ''}`;
+${values.notes ? `Notes: ${values.notes}` : ""}`;
+
+    saveSubmission({
+      type: "appointment",
+      name: values.name,
+      phone: values.phone,
+      vehicle: values.vehicle,
+      service: values.service,
+      preferredDate: format(values.date, "EEEE, MMM d, yyyy"),
+      preferredTime: values.time,
+      message: values.notes ?? "",
+    });
 
     const cleanPhone = SHOP.phone.replace(/\D/g, "");
     window.open(`https://wa.me/1${cleanPhone}?text=${encodeURIComponent(text)}`, "_blank");

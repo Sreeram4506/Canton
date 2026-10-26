@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { Clock, MapPin, Phone, Send } from "lucide-react";
 import { toast } from "sonner";
+import { saveSubmission } from "@/lib/submit-form";
 import { Reveal } from "./Reveal";
 import { SHOP } from "./shop";
 
@@ -11,13 +12,23 @@ export function ContactBand() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
-    
+
     const text = `Hi, I'd like to request a callback.
 Name: ${String(data["name"] || "")}
 Email: ${String(data["email"] || "")}
 Phone: ${String(data["phone"] || "")}
 Vehicle: ${String(data["vehicle"] || "")}
 Issue: ${String(data["issue"] || "")}`;
+
+    saveSubmission({
+      type: "callback",
+      name: String(data["name"] || ""),
+      email: String(data["email"] || ""),
+      phone: String(data["phone"] || ""),
+      vehicle: String(data["vehicle"] || ""),
+      message: String(data["issue"] || ""),
+      website: String(data["website"] || ""),
+    });
 
     const cleanPhone = SHOP.phone.replace(/\D/g, "");
     window.open(`https://wa.me/1${cleanPhone}?text=${encodeURIComponent(text)}`, "_blank");
@@ -75,6 +86,14 @@ Issue: ${String(data["issue"] || "")}`;
               onSubmit={onSubmit}
               className="rounded-2xl border border-border bg-background p-5 shadow-elevated sm:p-8"
             >
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute -left-[9999px] h-0 w-0 opacity-0"
+              />
               <div className="grid gap-4 sm:grid-cols-2">
                 <Field label="Your name" name="name" placeholder="Alex Moore" />
                 <Field label="Email" name="email" type="email" placeholder="alex@email.com" />

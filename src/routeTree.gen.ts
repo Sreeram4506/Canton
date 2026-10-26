@@ -17,8 +17,12 @@ import { Route as LayoutContactRouteImport } from './routes/_layout/contact'
 import { Route as LayoutProcessRouteImport } from './routes/_layout/process'
 import { Route as LayoutReviewsRouteImport } from './routes/_layout/reviews'
 import { Route as LayoutWhyUsRouteImport } from './routes/_layout/why-us'
+import { Route as ApiBannerRouteImport } from './routes/api/banner'
+import { Route as ApiSessionRouteImport } from './routes/api/session'
+import { Route as ApiSubmissionsRouteImport } from './routes/api/submissions'
 import { Route as LayoutServicesIndexRouteImport } from './routes/_layout/services/index'
 import { Route as LayoutServicesSlugRouteImport } from './routes/_layout/services/$slug'
+import { Route as ApiSubmissionsIdRouteImport } from './routes/api/submissions.$id'
 
 const LayoutRoute = LayoutRouteImport.update({
   id: '/_layout',
@@ -59,6 +63,21 @@ const LayoutWhyUsRoute = LayoutWhyUsRouteImport.update({
   path: '/why-us',
   getParentRoute: () => LayoutRoute,
 } as any)
+const ApiBannerRoute = ApiBannerRouteImport.update({
+  id: '/api/banner',
+  path: '/api/banner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiSessionRoute = ApiSessionRouteImport.update({
+  id: '/api/session',
+  path: '/api/session',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiSubmissionsRoute = ApiSubmissionsRouteImport.update({
+  id: '/api/submissions',
+  path: '/api/submissions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LayoutServicesIndexRoute = LayoutServicesIndexRouteImport.update({
   id: '/services/',
   path: '/services/',
@@ -69,6 +88,11 @@ const LayoutServicesSlugRoute = LayoutServicesSlugRouteImport.update({
   path: '/services/$slug',
   getParentRoute: () => LayoutRoute,
 } as any)
+const ApiSubmissionsIdRoute = ApiSubmissionsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiSubmissionsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof LayoutIndexRoute
@@ -78,7 +102,11 @@ export interface FileRoutesByFullPath {
   '/process': typeof LayoutProcessRoute
   '/reviews': typeof LayoutReviewsRoute
   '/why-us': typeof LayoutWhyUsRoute
+  '/api/banner': typeof ApiBannerRoute
+  '/api/session': typeof ApiSessionRoute
+  '/api/submissions': typeof ApiSubmissionsRouteWithChildren
   '/services/$slug': typeof LayoutServicesSlugRoute
+  '/api/submissions/$id': typeof ApiSubmissionsIdRoute
   '/services/': typeof LayoutServicesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -88,8 +116,12 @@ export interface FileRoutesByTo {
   '/process': typeof LayoutProcessRoute
   '/reviews': typeof LayoutReviewsRoute
   '/why-us': typeof LayoutWhyUsRoute
+  '/api/banner': typeof ApiBannerRoute
+  '/api/session': typeof ApiSessionRoute
+  '/api/submissions': typeof ApiSubmissionsRouteWithChildren
   '/': typeof LayoutIndexRoute
   '/services/$slug': typeof LayoutServicesSlugRoute
+  '/api/submissions/$id': typeof ApiSubmissionsIdRoute
   '/services': typeof LayoutServicesIndexRoute
 }
 export interface FileRoutesById {
@@ -101,8 +133,12 @@ export interface FileRoutesById {
   '/_layout/process': typeof LayoutProcessRoute
   '/_layout/reviews': typeof LayoutReviewsRoute
   '/_layout/why-us': typeof LayoutWhyUsRoute
+  '/api/banner': typeof ApiBannerRoute
+  '/api/session': typeof ApiSessionRoute
+  '/api/submissions': typeof ApiSubmissionsRouteWithChildren
   '/_layout/': typeof LayoutIndexRoute
   '/_layout/services/$slug': typeof LayoutServicesSlugRoute
+  '/api/submissions/$id': typeof ApiSubmissionsIdRoute
   '/_layout/services/': typeof LayoutServicesIndexRoute
 }
 export interface FileRouteTypes {
@@ -115,7 +151,11 @@ export interface FileRouteTypes {
     | '/process'
     | '/reviews'
     | '/why-us'
+    | '/api/banner'
+    | '/api/session'
+    | '/api/submissions'
     | '/services/$slug'
+    | '/api/submissions/$id'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -125,8 +165,12 @@ export interface FileRouteTypes {
     | '/process'
     | '/reviews'
     | '/why-us'
+    | '/api/banner'
+    | '/api/session'
+    | '/api/submissions'
     | '/'
     | '/services/$slug'
+    | '/api/submissions/$id'
     | '/services'
   id:
     | '__root__'
@@ -137,14 +181,21 @@ export interface FileRouteTypes {
     | '/_layout/process'
     | '/_layout/reviews'
     | '/_layout/why-us'
+    | '/api/banner'
+    | '/api/session'
+    | '/api/submissions'
     | '/_layout/'
     | '/_layout/services/$slug'
+    | '/api/submissions/$id'
     | '/_layout/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   LayoutRoute: typeof LayoutRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ApiBannerRoute: typeof ApiBannerRoute
+  ApiSessionRoute: typeof ApiSessionRoute
+  ApiSubmissionsRoute: typeof ApiSubmissionsRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -205,6 +256,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutWhyUsRouteImport
       parentRoute: typeof LayoutRoute
     }
+    '/api/banner': {
+      id: '/api/banner'
+      path: '/api/banner'
+      fullPath: '/api/banner'
+      preLoaderRoute: typeof ApiBannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/session': {
+      id: '/api/session'
+      path: '/api/session'
+      fullPath: '/api/session'
+      preLoaderRoute: typeof ApiSessionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/submissions': {
+      id: '/api/submissions'
+      path: '/api/submissions'
+      fullPath: '/api/submissions'
+      preLoaderRoute: typeof ApiSubmissionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_layout/services/': {
       id: '/_layout/services/'
       path: '/services'
@@ -218,6 +290,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/services/$slug'
       preLoaderRoute: typeof LayoutServicesSlugRouteImport
       parentRoute: typeof LayoutRoute
+    }
+    '/api/submissions/$id': {
+      id: '/api/submissions/$id'
+      path: '/$id'
+      fullPath: '/api/submissions/$id'
+      preLoaderRoute: typeof ApiSubmissionsIdRouteImport
+      parentRoute: typeof ApiSubmissionsRoute
     }
   }
 }
@@ -247,9 +326,24 @@ const LayoutRouteChildren: LayoutRouteChildren = {
 const LayoutRouteWithChildren =
   LayoutRoute._addFileChildren(LayoutRouteChildren)
 
+interface ApiSubmissionsRouteChildren {
+  ApiSubmissionsIdRoute: typeof ApiSubmissionsIdRoute
+}
+
+const ApiSubmissionsRouteChildren: ApiSubmissionsRouteChildren = {
+  ApiSubmissionsIdRoute: ApiSubmissionsIdRoute,
+}
+
+const ApiSubmissionsRouteWithChildren = ApiSubmissionsRoute._addFileChildren(
+  ApiSubmissionsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   LayoutRoute: LayoutRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ApiBannerRoute: ApiBannerRoute,
+  ApiSessionRoute: ApiSessionRoute,
+  ApiSubmissionsRoute: ApiSubmissionsRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

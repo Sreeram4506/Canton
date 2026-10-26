@@ -10,6 +10,20 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [banner, setBanner] = useState("");
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/banner")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((b: { active?: boolean; text?: string } | null) => {
+        if (!cancelled && b?.active && b.text) setBanner(b.text);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -35,9 +49,15 @@ export function SiteHeader() {
     } ${extra}`;
 
   return (
-    <header
-      className="fixed inset-x-0 top-0 z-50 transition-all duration-300 border-transparent bg-transparent"
-    >
+    <header className="fixed inset-x-0 top-0 z-50 transition-all duration-300 border-transparent bg-transparent">
+      {banner && (
+        <div
+          role="status"
+          className="brand-gradient px-4 py-2 text-center text-xs font-bold text-primary-foreground sm:text-sm"
+        >
+          {banner}
+        </div>
+      )}
       <div
         className={`mx-auto flex max-w-7xl items-center justify-between gap-5 px-4 transition-all duration-300 sm:px-6 ${
           !scrolled ? "py-3 lg:py-5" : "py-2.5"
